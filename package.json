@@ -1,0 +1,25 @@
+{
+  "name": "zepeto-PvE-MonsterHunter",
+  "version": "1.0.0",
+  "description": "multiplay rpg",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kim-JeongUng/zepeto-PvE-MonsterHunter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kim-JeongUng/zepeto-PvE-MonsterHunter/issues"
+  },
+  "homepage": "https://github.com/Kim-JeongUng/zepeto-PvE-MonsterHunter#readme",
+  "dependencies": {
+    "@zepeto/sandbox": "file:Library/Packages/zepeto-sandbox.tgz",
+    "typescript": "^4.3.5",
+    "zepeto-script-compiler": "file:Library/Packages/zepeto-script-compiler.tgz"
+  }
+}
