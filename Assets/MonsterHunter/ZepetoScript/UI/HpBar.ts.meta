@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: c6fd0e16400c348de9e7f9738e9b8025
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nclass HPBar extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this._maxHP
+    = 100;\r\n        this._currentHP = 100;\r\n        this._targetHP = 100;\r\n       
+    this._lerpSpeed = 5.0;\r\n        this._isDamaged = false;\r\n    }\r\n    Start()
+    {\r\n        this.UpdateHPBar();\r\n    }\r\n    Update() {\r\n        if (this._isDamaged)
+    {\r\n            this._currentHP = UnityEngine_1.Mathf.Lerp(this._currentHP,
+    this._targetHP, UnityEngine_1.Time.deltaTime * this._lerpSpeed);\r\n           
+    this.UpdateHPBar();\r\n            if (UnityEngine_1.Mathf.Abs(this._currentHP
+    - this._targetHP) < 0.1) {\r\n                this._isDamaged = false;\r\n           
+    }\r\n        }\r\n    }\r\n    TakeDamage(amount) {\r\n        this._isDamaged
+    = true;\r\n        this._targetHP = UnityEngine_1.Mathf.Clamp(this._targetHP
+    - amount, 0, this._maxHP);\r\n    }\r\n    UpdateHPBar() {\r\n        let fillAmount
+    = this._currentHP / this._maxHP;\r\n        this._fillImage.fillAmount = fillAmount;\r\n   
+    }\r\n}\r\nexports.default = HPBar;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSHBCYXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJIcEJhci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUVyRCw2Q0FBMEM7QUFFMUMsTUFBcUIsS0FBTSxTQUFRLHFDQUFxQjtJQUF4RDs7UUFFOEIsV0FBTSxHQUFXLEdBQUcsQ0FBQztRQUN2QyxlQUFVLEdBQVcsR0FBRyxDQUFDO1FBQ3pCLGNBQVMsR0FBVyxHQUFHLENBQUM7UUFDeEIsZUFBVSxHQUFXLEdBQUcsQ0FBQztRQUN6QixlQUFVLEdBQVksS0FBSyxDQUFDO0lBeUJ4QyxDQUFDO0lBdkJHLEtBQUs7UUFDRCxJQUFJLENBQUMsV0FBVyxFQUFFLENBQUM7SUFDdkIsQ0FBQztJQUVELE1BQU07UUFDRixJQUFJLElBQUksQ0FBQyxVQUFVLEVBQUU7WUFDakIsSUFBSSxDQUFDLFVBQVUsR0FBRyxtQkFBSyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsVUFBVSxFQUFFLElBQUksQ0FBQyxTQUFTLEVBQUUsa0JBQUksQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1lBQ2hHLElBQUksQ0FBQyxXQUFXLEVBQUUsQ0FBQztZQUNuQixJQUFJLG1CQUFLLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxVQUFVLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxHQUFHLEdBQUcsRUFBRTtnQkFDbkQsSUFBSSxDQUFDLFVBQVUsR0FBRyxLQUFLLENBQUM7YUFDM0I7U0FDSjtJQUNMLENBQUM7SUFFRCxVQUFVLENBQUMsTUFBYztRQUNyQixJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksQ0FBQztRQUN2QixJQUFJLENBQUMsU0FBUyxHQUFHLG1CQUFLLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxTQUFTLEdBQUcsTUFBTSxFQUFFLENBQUMsRUFBRSxJQUFJLENBQUMsTUFBTSxDQUFDLENBQUM7SUFDMUUsQ0FBQztJQUVELFdBQVc7UUFDUCxJQUFJLFVBQVUsR0FBVyxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUM7UUFDdkQsSUFBSSxDQUFDLFVBQVUsQ0FBQyxVQUFVLEdBQUcsVUFBVSxDQUFDO0lBQzVDLENBQUM7Q0FDSjtBQS9CRCx3QkErQkMifQ==","assetPath":"Assets/MonsterHunter/ZepetoScript/UI/HpBar.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"_fillImage","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"_maxHP","type":"System.Single","isArray":false,"initValue":["100"],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"HPBar","description":""},"isCompiled":true}'
+  typescriptHash: be6f40b0e54dce8f4ec0ce8e10dd0c8e
+  onlyWriteTrigger: 0
