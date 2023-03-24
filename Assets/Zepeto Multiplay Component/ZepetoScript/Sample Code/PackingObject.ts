@@ -8,8 +8,8 @@ export default class PackingObject extends ZepetoScriptBehaviour {
     // This is a script that makes the Zepeto player move together by setting the object as a child object.
     // For example, holding a gun, holding a balloon,
     @SerializeField() private targetBone: HumanBodyBones;
-    @SerializeField() private localPosition: Vector3 = Vector3.zero;
-    @SerializeField() private localRotation: Vector3 = Vector3.zero;
+    @SerializeField() private localPosition: Vector3;
+    @SerializeField() private localRotation: Vector3;
     private _tfHelper:TransformSyncHelper;    
 
     private Start() {    
