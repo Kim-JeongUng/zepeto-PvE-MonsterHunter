@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c97064d5-589c-4f57-8d69-27795ea72d07" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/UIController_Touchpad_Horizontal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/UIController_Touchpad_Horizontal.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/EquipItemManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/LocalCharacterManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/EquipItemManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/LocalCharacterManager.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/MonsterHunter.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/MonsterHunter.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/SyncComponentModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/SyncComponentModule.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@vercel/ncc/dist/ncc/index.js.cache" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vercel/ncc/dist/ncc/index.js.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@vercel/ncc/dist/ncc/loaders/relocate-loader.js.cache" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vercel/ncc/dist/ncc/loaders/relocate-loader.js.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@vercel/ncc/dist/ncc/loaders/shebang-loader.js.cache" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vercel/ncc/dist/ncc/loaders/shebang-loader.js.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@vercel/ncc/dist/ncc/loaders/ts-loader.js.cache" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vercel/ncc/dist/ncc/loaders/ts-loader.js.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1679216429483</updated>
       <workItem from="1679216434276" duration="1125000" />
-      <workItem from="1679652694908" duration="3211000" />
+      <workItem from="1679652694908" duration="3499000" />
     </task>
     <servers />
   </component>

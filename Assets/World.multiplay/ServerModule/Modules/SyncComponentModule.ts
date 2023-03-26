@@ -9,6 +9,7 @@ export default class SyncComponentModule extends IModule {
 
     async OnCreate() {
         /**Zepeto Player Sync**/
+        
         this.server.onMessage(MESSAGE.SyncPlayer, (client, message) => {
             const player = this.server.state.players.get(client.sessionId);
             if (player) {

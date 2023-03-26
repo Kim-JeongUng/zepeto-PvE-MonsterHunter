@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 2114013772}
   - component: {fileID: 2114013773}
   m_Layer: 0
-  m_Name: EquipItemManager
+  m_Name: LocalCharacterManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
