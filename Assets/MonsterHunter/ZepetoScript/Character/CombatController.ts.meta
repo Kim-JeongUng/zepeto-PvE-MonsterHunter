@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: 15403791483254b748fa2562bfafa5f7
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nclass
+    CombatController extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        this._attackFlag = false;\r\n   
+    }\r\n    Start() {\r\n        this.OnLocalCharacterLoaded();\r\n        this._localCharacter
+    = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
+    this.animationClip = UnityEngine_1.Resources.Load(\"Slash1\");\r\n    }\r\n   
+    OnLocalCharacterLoaded() {\r\n        this._attackBtn = UnityEngine_1.GameObject.Find(\"AttackBtn\").GetComponent($typeof(UnityEngine_UI_1.Button));\r\n       
+    this._attackBtn.onClick.AddListener(() => {\r\n            this.StartCoroutine(this.DoCharacterAttack());\r\n       
+    });\r\n    }\r\n    *DoCharacterAttack() {\r\n        if (!this._attackFlag)
+    {\r\n            this._attackFlag = true;\r\n            this._localCharacter.SetGesture(this.animationClip);\r\n           
+    yield new UnityEngine_1.WaitForSeconds(this.animationClip.length);\r\n           
+    this._attackFlag = false;\r\n        }\r\n    }\r\n}\r\nexports.default = CombatController;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ29tYmF0Q29udHJvbGxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNvbWJhdENvbnRyb2xsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQsNkVBQTJFO0FBQzNFLDZDQUFpRjtBQUNqRixtREFBc0M7QUFFdEMsTUFBcUIsZ0JBQWlCLFNBQVEscUNBQXFCO0lBQW5FOztRQUtZLGdCQUFXLEdBQWEsS0FBSyxDQUFDO0lBeUIxQyxDQUFDO0lBdkJHLEtBQUs7UUFDRCxJQUFJLENBQUMsc0JBQXNCLEVBQUUsQ0FBQztRQUM5QixJQUFJLENBQUMsZUFBZSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1FBQ2pGLElBQUksQ0FBQyxhQUFhLEdBQUcsdUJBQVMsQ0FBQyxJQUFJLENBQUMsUUFBUSxDQUFrQixDQUFDO0lBQ25FLENBQUM7SUFFTyxzQkFBc0I7UUFDMUIsSUFBSSxDQUFDLFVBQVUsR0FBRyx3QkFBVSxDQUFDLElBQUksQ0FBQyxXQUFXLENBQUMsQ0FBQyxZQUFZLFNBQUMsdUJBQU0sRUFBYSxDQUFDO1FBQ2hGLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDckMsSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLEVBQUUsQ0FBQyxDQUFDO1FBQ2xELENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVPLENBQUUsaUJBQWlCO1FBQ3ZCLElBQUcsQ0FBQyxJQUFJLENBQUMsV0FBVyxFQUFFO1lBQ2xCLElBQUksQ0FBQyxXQUFXLEdBQUcsSUFBSSxDQUFDO1lBQ3hCLElBQUksQ0FBQyxlQUFlLENBQUMsVUFBVSxDQUFDLElBQUksQ0FBQyxhQUFhLENBQUMsQ0FBQztZQUVwRCxNQUFNLElBQUksNEJBQWMsQ0FBQyxJQUFJLENBQUMsYUFBYSxDQUFDLE1BQU0sQ0FBQyxDQUFDO1lBQ3BELElBQUksQ0FBQyxXQUFXLEdBQUcsS0FBSyxDQUFDO1NBQzVCO0lBQ0wsQ0FBQztDQUVKO0FBOUJELG1DQThCQyJ9","assetPath":"Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts","manifest":{"properties":[{"assembly":"UnityEngine.AnimationModule","name":"animationClip","type":"UnityEngine.AnimationClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"CombatController","description":""},"isCompiled":true}'
+  typescriptHash: f6d24ed220a133b04f22abdb7ac5cf5a
+  onlyWriteTrigger: 0

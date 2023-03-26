@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: bb5ad24f87cde464e8dde55c5d50732f
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nconst MultiplayManager_1 = require(\"../../../Zepeto
+    Multiplay Component/ZepetoScript/Common/MultiplayManager\");\r\nconst CombatController_1
+    = require(\"../Character/CombatController\");\r\nclass LocalCharacterManager
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n       
+    super(...arguments);\r\n        this.itemName = \"Hero_Sword\";\r\n    }\r\n   
+    Start() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n           
+    // TODO: load Data base\r\n            this.EquipItem(this.itemName);\r\n           
+    this._localCharacter.gameObject.AddComponent($typeof(CombatController_1.default));\r\n       
+    });\r\n    }\r\n    EquipItem(itemName) {\r\n        MultiplayManager_1.default.instance.Instantiate(itemName,
+    MultiplayManager_1.default.instance?.room.SessionId, UnityEngine_1.Vector3.zero,
+    UnityEngine_1.Quaternion.identity);\r\n    }\r\n}\r\nexports.default = LocalCharacterManager;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTG9jYWxDaGFyYWN0ZXJNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTG9jYWxDaGFyYWN0ZXJNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXFEO0FBQ3JELDZDQUEwRDtBQUMxRCw2RUFBMkU7QUFFM0UsK0dBQXdHO0FBQ3hHLG9FQUE2RDtBQUU3RCxNQUFxQixxQkFBc0IsU0FBUSxxQ0FBcUI7SUFBeEU7O1FBQzhCLGFBQVEsR0FBVSxZQUFZLENBQUM7SUFpQjdELENBQUM7SUFkVyxLQUFLO1FBQ1QsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCxJQUFJLENBQUMsZUFBZSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1lBRWpGLHVCQUF1QjtZQUN2QixJQUFJLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxRQUFRLENBQUMsQ0FBQztZQUU5QixJQUFJLENBQUMsZUFBZSxDQUFDLFVBQVUsQ0FBQyxZQUFZLFNBQUMsMEJBQWdCLEdBQUk7UUFDckUsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRU8sU0FBUyxDQUFDLFFBQWU7UUFDN0IsMEJBQWdCLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxRQUFRLEVBQUUsMEJBQWdCLENBQUMsUUFBUSxFQUFFLElBQUksQ0FBQyxTQUFTLEVBQUMscUJBQU8sQ0FBQyxJQUFJLEVBQUUsd0JBQVUsQ0FBQyxRQUFRLENBQUMsQ0FBQztJQUNqSSxDQUFDO0NBQ0o7QUFsQkQsd0NBa0JDIn0=","assetPath":"Assets/MonsterHunter/ZepetoScript/Equipment/LocalCharacterManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"itemName","type":"System.String","isArray":false,"initValue":["Hero_Sword"],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"LocalCharacterManager","description":""},"isCompiled":true}'
+  typescriptHash: 2a8f743cb72ca3a94908629824ca4967
+  onlyWriteTrigger: 0

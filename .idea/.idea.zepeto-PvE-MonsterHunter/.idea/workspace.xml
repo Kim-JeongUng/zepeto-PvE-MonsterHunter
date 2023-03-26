@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c97064d5-589c-4f57-8d69-27795ea72d07" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/EquipItemManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/EquipItemManager.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Sample Code/PackingObject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Sample Code/PackingObject.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Sample Code/PackingObject.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Sample Code/PackingObject.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/UIController_Touchpad_Horizontal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/UIController_Touchpad_Horizontal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/EquipItemManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/LocalCharacterManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/EquipItemManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/LocalCharacterManager.ts.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +14,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../AICommand-main/Assets/Editor/OpenAIUtil.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab45289aa34148f0ba1a47ecda029da02c800/0c/caf3f783/ZepetoScreenButton.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -74,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1679216429483</updated>
       <workItem from="1679216434276" duration="1125000" />
-      <workItem from="1679652694908" duration="1269000" />
+      <workItem from="1679652694908" duration="3211000" />
     </task>
     <servers />
   </component>
