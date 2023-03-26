@@ -18,7 +18,8 @@ export default class PackingObject extends ZepetoScriptBehaviour {
     }
 
     private *MountingObject(ownerSessiondId :string){
-        const user = MultiplayManager.instance.room.State.players.get_Item(ownerSessiondId);
+        console.log(ownerSessiondId);
+        const user = MultiplayManager.instance.room.State.players?.get_Item(ownerSessiondId);
         if(user !== null) {
             yield new WaitUntil(() => ZepetoPlayers.instance.HasPlayer(ownerSessiondId));
             const player = ZepetoPlayers.instance.GetPlayer(ownerSessiondId).character;

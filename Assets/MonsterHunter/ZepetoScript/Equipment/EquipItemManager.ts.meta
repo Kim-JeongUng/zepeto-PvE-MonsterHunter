@@ -21,15 +21,15 @@ ScriptedImporter:
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
     UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Character_Controller_1
-    = require(\"ZEPETO.Character.Controller\");\r\nconst MultiplayManager_1 = require(\"../../../Zepeto
-    Multiplay Component/ZepetoScript/Common/MultiplayManager\");\r\nclass EquipItemManager
-    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n       
-    super(...arguments);\r\n        this.itemName = \"Hero_Sword\";\r\n    }\r\n   
-    Start() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    = require(\"ZEPETO.Character.Controller\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst
+    MultiplayManager_1 = require(\"../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager\");\r\nclass
+    EquipItemManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        this.itemName = \"Hero_Sword\";\r\n   
+    }\r\n    Start() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
     => {\r\n            // TODO: load Data base\r\n            this.EquipItem(this.itemName);\r\n       
     });\r\n    }\r\n    EquipItem(itemName) {\r\n        MultiplayManager_1.default.instance.Instantiate(itemName,
     MultiplayManager_1.default.instance?.room.SessionId, UnityEngine_1.Vector3.zero,
     UnityEngine_1.Quaternion.identity);\r\n    }\r\n}\r\nexports.default = EquipItemManager;\r\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRXF1aXBJdGVtTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkVxdWlwSXRlbU1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQsNkNBQTBEO0FBQzFELDZFQUEwRDtBQUUxRCwrR0FBd0c7QUFFeEcsTUFBcUIsZ0JBQWlCLFNBQVEscUNBQXFCO0lBQW5FOztRQUM4QixhQUFRLEdBQVUsWUFBWSxDQUFDO0lBYTdELENBQUM7SUFYVyxLQUFLO1FBQ1QsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCx1QkFBdUI7WUFFdkIsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsUUFBUSxDQUFDLENBQUM7UUFDbEMsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRU8sU0FBUyxDQUFDLFFBQWU7UUFDN0IsMEJBQWdCLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxRQUFRLEVBQUUsMEJBQWdCLENBQUMsUUFBUSxFQUFFLElBQUksQ0FBQyxTQUFTLEVBQUMscUJBQU8sQ0FBQyxJQUFJLEVBQUUsd0JBQVUsQ0FBQyxRQUFRLENBQUMsQ0FBQztJQUNqSSxDQUFDO0NBQ0o7QUFkRCxtQ0FjQyJ9","assetPath":"Assets/MonsterHunter/ZepetoScript/Equipment/EquipItemManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"itemName","type":"System.String","isArray":false,"initValue":["Hero_Sword"],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"EquipItemManager","description":""},"isCompiled":true}'
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRXF1aXBJdGVtTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkVxdWlwSXRlbU1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQsNkNBQTBEO0FBQzFELDZFQUEwRDtBQUMxRCwrQ0FBa0Q7QUFDbEQsK0dBQXdHO0FBRXhHLE1BQXFCLGdCQUFpQixTQUFRLHFDQUFxQjtJQUFuRTs7UUFDOEIsYUFBUSxHQUFVLFlBQVksQ0FBQztJQWE3RCxDQUFDO0lBWFcsS0FBSztRQUNULDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsdUJBQXVCO1lBRXZCLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxDQUFDO1FBQ2xDLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVPLFNBQVMsQ0FBQyxRQUFlO1FBQzdCLDBCQUFnQixDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsUUFBUSxFQUFFLDBCQUFnQixDQUFDLFFBQVEsRUFBRSxJQUFJLENBQUMsU0FBUyxFQUFDLHFCQUFPLENBQUMsSUFBSSxFQUFFLHdCQUFVLENBQUMsUUFBUSxDQUFDLENBQUM7SUFDakksQ0FBQztDQUNKO0FBZEQsbUNBY0MifQ==","assetPath":"Assets/MonsterHunter/ZepetoScript/Equipment/EquipItemManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"itemName","type":"System.String","isArray":false,"initValue":["Hero_Sword"],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"EquipItemManager","description":""},"isCompiled":true}'
   typescriptHash: d8a46d9b4f99406a7724472b7c8af1bf
   onlyWriteTrigger: 0
