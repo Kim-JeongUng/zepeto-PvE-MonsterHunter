@@ -6,6 +6,7 @@ declare module "ZEPETO.Multiplay.Schema" {
 	interface State extends Schema {
 		players: MapSchema<Player>;
 		SyncTransforms: MapSchema<SyncTransform>;
+		GameEntities: MapSchema<GameEntity>;
 	}
 	class Player extends Schema {
 		sessionId: string;
@@ -49,5 +50,12 @@ declare module "ZEPETO.Multiplay.Schema" {
 		FallSpeed: number;
 		Acceleration: number;
 		MoveProgress: number;
+	}
+	class GameEntity extends Schema {
+		ObjectId: string;
+		isMonster: boolean;
+		MaxHp: number;
+		Hp: number;
+		AttackDamage: number;
 	}
 }

@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: ee7459678532a48758492264b2d6f474
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.Golem = void 0;\r\nconst Monster_1 = require(\"../Base/Monster\");\r\nclass
+    Golem extends Monster_1.Monster {\r\n    constructor(name, health) {\r\n       
+    super(name, health);\r\n    }\r\n    attack(target) {\r\n        console.log(`${this.name}
+    breathes fire at ${target.name}.`);\r\n        target.takeDamage(20);\r\n   
+    }\r\n}\r\nexports.Golem = Golem;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR29sZW0uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHb2xlbS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFFQSw2Q0FBMEM7QUFFMUMsTUFBYSxLQUFNLFNBQVEsaUJBQU87SUFDOUIsWUFBWSxJQUFZLEVBQUUsTUFBYztRQUNwQyxLQUFLLENBQUMsSUFBSSxFQUFFLE1BQU0sQ0FBQyxDQUFDO0lBQ3hCLENBQUM7SUFFRCxNQUFNLENBQUMsTUFBYztRQUNqQixPQUFPLENBQUMsR0FBRyxDQUFDLEdBQUcsSUFBSSxDQUFDLElBQUkscUJBQXFCLE1BQU0sQ0FBQyxJQUFJLEdBQUcsQ0FBQyxDQUFDO1FBQzdELE1BQU0sQ0FBQyxVQUFVLENBQUMsRUFBRSxDQUFDLENBQUM7SUFDMUIsQ0FBQztDQUNKO0FBVEQsc0JBU0MifQ==","assetPath":"Assets/MonsterHunter/ZepetoScript/Monster/Golem.ts","manifest":{"properties":[],"name":"Golem","description":""},"isCompiled":true}'
+  typescriptHash: 93bcc4320e5545204baba1852c6eb4dc
+  onlyWriteTrigger: 0

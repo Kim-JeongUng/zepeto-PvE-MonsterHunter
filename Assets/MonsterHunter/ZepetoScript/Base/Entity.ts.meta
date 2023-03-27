@@ -18,6 +18,14 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"","assetPath":"Assets/MonsterHunter/ZepetoScript/Base/Entity.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
-  typescriptHash: 577ad7556d2913cb1bf184fc1b4719dc
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.Entity = void 0;\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    Entity extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor(name,
+    health) {\r\n        super();\r\n        this.name = name;\r\n        this.health
+    = health;\r\n    }\r\n    get name() {\r\n        return this._name;\r\n    }\r\n   
+    set name(value) {\r\n        this._name = value;\r\n    }\r\n    takeDamage(damage)
+    {\r\n        this.health -= damage;\r\n        if (this.health <= 0) {\r\n           
+    console.log(`${this.name} has been defeated.`);\r\n        }\r\n    }\r\n}\r\nexports.Entity
+    = Entity;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW50aXR5LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiRW50aXR5LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLGlEQUFxRDtBQUVyRCxNQUFzQixNQUFPLFNBQVEscUNBQXFCO0lBVXRELFlBQVksSUFBWSxFQUFFLE1BQWM7UUFDcEMsS0FBSyxFQUFFLENBQUM7UUFDUixJQUFJLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQztRQUNqQixJQUFJLENBQUMsTUFBTSxHQUFHLE1BQU0sQ0FBQztJQUN6QixDQUFDO0lBWkQsSUFBVyxJQUFJO1FBQ1gsT0FBTyxJQUFJLENBQUMsS0FBSyxDQUFDO0lBQ3RCLENBQUM7SUFDRCxJQUFXLElBQUksQ0FBQyxLQUFhO1FBQ3pCLElBQUksQ0FBQyxLQUFLLEdBQUcsS0FBSyxDQUFDO0lBQ3ZCLENBQUM7SUFXRCxVQUFVLENBQUMsTUFBYztRQUNyQixJQUFJLENBQUMsTUFBTSxJQUFJLE1BQU0sQ0FBQztRQUN0QixJQUFJLElBQUksQ0FBQyxNQUFNLElBQUksQ0FBQyxFQUFFO1lBQ2xCLE9BQU8sQ0FBQyxHQUFHLENBQUMsR0FBRyxJQUFJLENBQUMsSUFBSSxxQkFBcUIsQ0FBQyxDQUFDO1NBQ2xEO0lBQ0wsQ0FBQztDQUNKO0FBeEJELHdCQXdCQyJ9","assetPath":"Assets/MonsterHunter/ZepetoScript/Base/Entity.ts","manifest":{"properties":[],"name":"Entity","description":""},"isCompiled":true}'
+  typescriptHash: 4f9f70cc513e5694624039955fc018b2
   onlyWriteTrigger: 0
