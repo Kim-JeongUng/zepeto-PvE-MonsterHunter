@@ -10,6 +10,6 @@ export class Dragon extends Monster {
     
     Attack(target: Entity) {
         console.log(`${this.name} breathes fire at ${target.name}.`);
-        target.TakeDamage(20);
+        target.TakeDamage(this.attackDamage);
     }
 }

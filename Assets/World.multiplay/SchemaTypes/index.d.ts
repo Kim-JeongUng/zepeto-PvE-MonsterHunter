@@ -56,6 +56,5 @@ declare module "ZEPETO.Multiplay.Schema" {
 		isMonster: boolean;
 		MaxHp: number;
 		Hp: number;
-		AttackDamage: number;
 	}
 }

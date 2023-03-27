@@ -10,6 +10,8 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     }
     maxHp: number;
     hp: number;
+    attackDamage: number;
+    skillDamage: number;
     
     constructor(objectId: string, maxHp: number) {
         super();

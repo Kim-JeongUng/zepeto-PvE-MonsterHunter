@@ -6,21 +6,22 @@ import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/C
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
 
 export default class Monster extends Entity implements IMonster {
-    @SerializeField() protected rewardExp;
-    @SerializeField() protected rewardCoin;
+    @SerializeField() protected rewardExp:number;
+    @SerializeField() protected rewardCoin:number;
     
     Start(){
     }
     
-    constructor(ObjectId: string, MaxHp: number) {
-        super(ObjectId, MaxHp);
-        this.SetEntity();
+    constructor(objectId: string, maxHp: number) {
+        super(objectId, maxHp);
+        this.SetEntity(objectId,maxHp);
     }
 
-    SetEntity(){
+    SetEntity(objectId:string, maxHp:number){
         const data = new RoomData();
-        data.Add("ObjectId", this.GetComponent<TransformSyncHelper>().Id);
-        data.Add("MaxHp", 10);
+        data.Add("ObjectId", objectId);
+        data.Add("isMonster", true);
+        data.Add("MaxHp", maxHp);
         MultiplayManager.instance.room.Send("SetEntity", data);
     }
     

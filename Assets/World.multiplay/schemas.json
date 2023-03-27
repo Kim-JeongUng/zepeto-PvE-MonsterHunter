@@ -6,5 +6,5 @@
 "SyncTransform" : {"Id" : "string","position" : "sVector3","localPosition" : "sVector3","rotation" : "sQuaternion","scale" : "sVector3","status" : "number","sendTime" : "float64"},
 "PlayerAdditionalValue" : {"additionalWalkSpeed" : "number","additionalRunSpeed" : "number","additionalJumpPower" : "number"},
 "ZepetoAnimationParam" : {"State" : "number","MoveState" : "number","JumpState" : "number","LandingState" : "number","MotionSpeed" : "number","FallSpeed" : "number","Acceleration" : "number","MoveProgress" : "number"},
-"GameEntity" : {"ObjectId" : "string","isMonster" : "boolean","MaxHp" : "number","Hp" : "number","AttackDamage" : "number"}
+"GameEntity" : {"ObjectId" : "string","isMonster" : "boolean","MaxHp" : "number","Hp" : "number"}
 }
