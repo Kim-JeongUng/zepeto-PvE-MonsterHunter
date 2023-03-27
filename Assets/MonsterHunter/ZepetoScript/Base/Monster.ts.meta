@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 40537c50b32f940b38ab215af0059991
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.Monster = void 0;\r\nconst Entity_1 = require(\"./Entity\");\r\nclass
+    Monster extends Entity_1.Entity {\r\n    constructor(name, health) {\r\n       
+    super(name, health);\r\n    }\r\n    attack(target) {\r\n        console.log(`${this.name}
+    attacks ${target.name}.`);\r\n        target.takeDamage(10);\r\n    }\r\n   
+    roar() {\r\n        console.log(`${this.name} roars loudly.`);\r\n    }\r\n}\r\nexports.Monster
+    = Monster;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTW9uc3Rlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1vbnN0ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQ0EscUNBQWtDO0FBR2xDLE1BQWEsT0FBUSxTQUFRLGVBQU07SUFDL0IsWUFBWSxJQUFZLEVBQUUsTUFBYztRQUNwQyxLQUFLLENBQUMsSUFBSSxFQUFFLE1BQU0sQ0FBQyxDQUFDO0lBQ3hCLENBQUM7SUFFRCxNQUFNLENBQUMsTUFBYztRQUNqQixPQUFPLENBQUMsR0FBRyxDQUFDLEdBQUcsSUFBSSxDQUFDLElBQUksWUFBWSxNQUFNLENBQUMsSUFBSSxHQUFHLENBQUMsQ0FBQztRQUNwRCxNQUFNLENBQUMsVUFBVSxDQUFDLEVBQUUsQ0FBQyxDQUFDO0lBQzFCLENBQUM7SUFFRCxJQUFJO1FBQ0EsT0FBTyxDQUFDLEdBQUcsQ0FBQyxHQUFHLElBQUksQ0FBQyxJQUFJLGdCQUFnQixDQUFDLENBQUM7SUFDOUMsQ0FBQztDQUNKO0FBYkQsMEJBYUMifQ==","assetPath":"Assets/MonsterHunter/ZepetoScript/Common/Monster.ts","manifest":{"properties":[],"name":"Monster","description":""},"isCompiled":true}'
+  typescriptHash: 0ae946fe6b837beb447a0af6268d0479
+  onlyWriteTrigger: 0

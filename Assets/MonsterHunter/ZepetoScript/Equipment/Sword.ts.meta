@@ -19,8 +19,15 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
-    Sword extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n   
-    }\r\n}\r\nexports.default = Sword;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3dvcmQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTd29yZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUVyRCxNQUFxQixLQUFNLFNBQVEscUNBQXFCO0lBRXBELEtBQUs7SUFFTCxDQUFDO0NBRUo7QUFORCx3QkFNQyJ9","assetPath":"Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts","manifest":{"properties":[],"name":"Sword","description":""},"isCompiled":true}'
-  typescriptHash: efb1a7f22462196aeac0d0de0e5f4c00
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst TransformSyncHelper_1 = require(\"../../../Zepeto
+    Multiplay Component/ZepetoScript/Transform/TransformSyncHelper\");\r\nconst MultiplayManager_1
+    = require(\"../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager\");\r\nconst
+    ZEPETO_Multiplay_1 = require(\"ZEPETO.Multiplay\");\r\nclass Sword extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Start() {\r\n    }\r\n    // only can trig enemy (layer setting) \r\n   
+    OnTriggerEnter(coll) {\r\n        const data = new ZEPETO_Multiplay_1.RoomData();\r\n       
+    data.Add(\"objectId\", coll.GetComponent($typeof(TransformSyncHelper_1.default)).Id);\r\n       
+    data.Add(\"quantity\", 10);\r\n        MultiplayManager_1.default.instance.room.Send(\"DamageToMonster\",
+    data);\r\n    }\r\n}\r\nexports.default = Sword;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3dvcmQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTd29yZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCw2Q0FBcUM7QUFFckMsd0hBQWlIO0FBQ2pILCtHQUF3RztBQUN4Ryx1REFBMEM7QUFFMUMsTUFBcUIsS0FBTSxTQUFRLHFDQUFxQjtJQUVwRCxLQUFLO0lBRUwsQ0FBQztJQUVELHVDQUF1QztJQUMvQixjQUFjLENBQUMsSUFBYztRQUVqQyxNQUFNLElBQUksR0FBRyxJQUFJLDJCQUFRLEVBQUUsQ0FBQztRQUM1QixJQUFJLENBQUMsR0FBRyxDQUFDLFVBQVUsRUFBRSxJQUFJLENBQUMsWUFBWSxTQUFDLDZCQUFtQixHQUFJLEVBQUUsQ0FBQyxDQUFDO1FBQ2xFLElBQUksQ0FBQyxHQUFHLENBQUMsVUFBVSxFQUFFLEVBQUUsQ0FBQyxDQUFDO1FBRXpCLDBCQUFnQixDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLGlCQUFpQixFQUFFLElBQUksQ0FBQyxDQUFDO0lBQ2pFLENBQUM7Q0FFSjtBQWhCRCx3QkFnQkMifQ==","assetPath":"Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts","manifest":{"properties":[],"name":"Sword","description":""},"isCompiled":true}'
+  typescriptHash: f98a79f39d920c452e7e63a44b42c670
   onlyWriteTrigger: 0

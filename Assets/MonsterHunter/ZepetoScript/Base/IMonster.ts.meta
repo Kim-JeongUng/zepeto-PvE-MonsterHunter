@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 86a7cb8d2e2cc46668931ccc85b69a05
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSU1vbnN0ZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJJTW9uc3Rlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIn0=","assetPath":"Assets/MonsterHunter/ZepetoScript/Common/IMonster.ts","manifest":{"properties":[],"name":"IMonster","description":""},"isCompiled":true}'
+  typescriptHash: dd0858611dce0c39205bf54eb3edb56e
+  onlyWriteTrigger: 0
