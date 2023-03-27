@@ -1,14 +1,15 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { Entity } from "../Base/Entity";
-import { Monster } from "../Base/Monster";
+import Entity from "../Base/Entity";
+import Monster from "../Base/Monster";
 
-export class Golem extends Monster {
+export default class Golem extends Monster {
+    
     constructor(name: string, health: number) {
         super(name, health);
     }
 
-    attack(target: Entity) {
+    Attack(target: Entity) {
         console.log(`${this.name} breathes fire at ${target.name}.`);
-        target.takeDamage(20);
+        target.TakeDamage(20);
     }
 }

@@ -19,10 +19,10 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nexports.Golem = void 0;\r\nconst Monster_1 = require(\"../Base/Monster\");\r\nclass
-    Golem extends Monster_1.Monster {\r\n    constructor(name, health) {\r\n       
-    super(name, health);\r\n    }\r\n    attack(target) {\r\n        console.log(`${this.name}
-    breathes fire at ${target.name}.`);\r\n        target.takeDamage(20);\r\n   
-    }\r\n}\r\nexports.Golem = Golem;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR29sZW0uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHb2xlbS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFFQSw2Q0FBMEM7QUFFMUMsTUFBYSxLQUFNLFNBQVEsaUJBQU87SUFDOUIsWUFBWSxJQUFZLEVBQUUsTUFBYztRQUNwQyxLQUFLLENBQUMsSUFBSSxFQUFFLE1BQU0sQ0FBQyxDQUFDO0lBQ3hCLENBQUM7SUFFRCxNQUFNLENBQUMsTUFBYztRQUNqQixPQUFPLENBQUMsR0FBRyxDQUFDLEdBQUcsSUFBSSxDQUFDLElBQUkscUJBQXFCLE1BQU0sQ0FBQyxJQUFJLEdBQUcsQ0FBQyxDQUFDO1FBQzdELE1BQU0sQ0FBQyxVQUFVLENBQUMsRUFBRSxDQUFDLENBQUM7SUFDMUIsQ0FBQztDQUNKO0FBVEQsc0JBU0MifQ==","assetPath":"Assets/MonsterHunter/ZepetoScript/Monster/Golem.ts","manifest":{"properties":[],"name":"Golem","description":""},"isCompiled":true}'
-  typescriptHash: 93bcc4320e5545204baba1852c6eb4dc
+    { value: true });\r\nconst Entity_1 = require(\"../Base/Entity\");\r\nconst Monster_1
+    = require(\"../Base/Monster\");\r\nclass Golem extends Monster_1.default {\r\n   
+    constructor(name, health) {\r\n        super(name, health);\r\n    }\r\n    Attack(target)
+    {\r\n        console.log(`${this.name} breathes fire at ${target.name}.`);\r\n       
+    target.TakeDamage(20);\r\n    }\r\n}\r\nexports.default = Golem;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR29sZW0uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHb2xlbS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLDJDQUFvQztBQUNwQyw2Q0FBc0M7QUFFdEMsTUFBcUIsS0FBTSxTQUFRLGlCQUFPO0lBRXRDLFlBQVksSUFBWSxFQUFFLE1BQWM7UUFDcEMsS0FBSyxDQUFDLElBQUksRUFBRSxNQUFNLENBQUMsQ0FBQztJQUN4QixDQUFDO0lBRUQsTUFBTSxDQUFDLE1BQWM7UUFDakIsT0FBTyxDQUFDLEdBQUcsQ0FBQyxHQUFHLElBQUksQ0FBQyxJQUFJLHFCQUFxQixNQUFNLENBQUMsSUFBSSxHQUFHLENBQUMsQ0FBQztRQUM3RCxNQUFNLENBQUMsVUFBVSxDQUFDLEVBQUUsQ0FBQyxDQUFDO0lBQzFCLENBQUM7Q0FDSjtBQVZELHdCQVVDIn0=","assetPath":"Assets/MonsterHunter/ZepetoScript/Monster/Golem.ts","manifest":{"properties":[{"assembly":"","name":"rewardExp","type":"any","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"","name":"rewardCoin","type":"any","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"maxHp","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"hp","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"Golem","description":""},"isCompiled":true}'
+  typescriptHash: 8f2d3db04d17c8dfe7612a0ab8de90a8
   onlyWriteTrigger: 0

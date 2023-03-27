@@ -2,16 +2,16 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import {ZepetoCharacter, ZepetoPlayers} from "ZEPETO.Character.Controller";
 import {GameObject, AnimationClip, WaitForSeconds, Resources} from "UnityEngine";
 import {Button} from "UnityEngine.UI";
-import { Entity } from "../Base/Entity";
+import Entity from "../Base/Entity";
 
 export default class CombatController extends Entity {
     constructor(name: string, health: number) {
         super(name, health);
     }
 
-    attack(target: Entity) {
+    Attack(target: Entity) {
         console.log(`${this.name} attacks ${target.name}.`);
-        target.takeDamage(10);
+        target.TakeDamage(10);
     }
     
     @SerializeField() private animationClip : AnimationClip;

@@ -1,3 +1,3 @@
 export interface IMonster {
-    roar(): void;
+    //roar(): void;
 }

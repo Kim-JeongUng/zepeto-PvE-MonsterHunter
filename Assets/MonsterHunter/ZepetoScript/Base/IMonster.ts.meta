@@ -19,6 +19,6 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSU1vbnN0ZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJJTW9uc3Rlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIn0=","assetPath":"Assets/MonsterHunter/ZepetoScript/Common/IMonster.ts","manifest":{"properties":[],"name":"IMonster","description":""},"isCompiled":true}'
-  typescriptHash: dd0858611dce0c39205bf54eb3edb56e
+    { value: true });\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSU1vbnN0ZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJJTW9uc3Rlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIn0=","assetPath":"Assets/MonsterHunter/ZepetoScript/Base/IMonster.ts","manifest":{"properties":[],"name":"IMonster","description":""},"isCompiled":true}'
+  typescriptHash: a030476276ffd9d48ad74e1de7119ad8
   onlyWriteTrigger: 0

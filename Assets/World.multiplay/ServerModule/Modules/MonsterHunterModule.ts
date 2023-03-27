@@ -7,22 +7,30 @@ export default class MonsterHunterModule extends IModule {
     async OnCreate() {
         /**Transform Sync**/
         this.server.onMessage(MESSAGE.SetEntity, (client, message) => {
-            const { ObjectId, MaxHp, Hp, AttackDamage } = message;
+            const { ObjectId, MaxHp, Hp } = message;
             let entity = this.server.state.GameEntities.get(ObjectId.toString());
-
             if (!entity) {
                 entity = new GameEntity();
                 this.server.state.GameEntities.set(ObjectId.toString(), entity);
             }
             Object.assign(entity.MaxHp, MaxHp);
-            Object.assign(entity.Hp, Hp);
-            Object.assign(entity.AttackDamage, AttackDamage);
+            Object.assign(entity.Hp, Hp??MaxHp);
         });
         
         this.server.onMessage(MESSAGE.TakeDamage, (client, message) => {
             const { ObjectId, quantity } = message;
             let entity = this.server.state.GameEntities.get(ObjectId.toString());
-            let currentHp = entity.Hp - quantity >= 0 ? entity.Hp - quantity : 0;
+            let currentHp = entity.Hp - quantity;
+            if(currentHp <= 0){
+                this.DeathEvent(client.sessionId, ObjectId);
+            }
+            Object.assign(entity.Hp, currentHp);
+        });
+        
+        this.server.onMessage(MESSAGE.GainHp, (client, message) => {
+            const { ObjectId, quantity } = message;
+            let entity = this.server.state.GameEntities.get(ObjectId.toString());
+            let currentHp = entity.Hp + quantity > entity.MaxHp ? entity.MaxHp : entity.Hp + quantity;
             Object.assign(entity.Hp, currentHp);
         });
     }
@@ -34,11 +42,24 @@ export default class MonsterHunterModule extends IModule {
     }
 
     OnTick(deltaTime: number) {
+        
     }
 
+    DeathEvent(attacker:string, victim:string){
+        const deathEvent:DeathEvent={
+            attacker,
+            victim
+        }
+        this.server.broadcast("DeathEvent",deathEvent);
+    }
+    
 }
-
+interface DeathEvent{
+    attacker:string,
+    victim : string
+}
 enum MESSAGE {
     SetEntity = "SetEntity",
-    TakeDamage = "TakeDamage"
+    TakeDamage = "TakeDamage",
+    GainHp = "GainHp"
 }

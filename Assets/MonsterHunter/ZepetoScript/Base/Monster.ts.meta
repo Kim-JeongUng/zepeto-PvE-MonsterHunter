@@ -19,11 +19,17 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nexports.Monster = void 0;\r\nconst Entity_1 = require(\"./Entity\");\r\nclass
-    Monster extends Entity_1.Entity {\r\n    constructor(name, health) {\r\n       
-    super(name, health);\r\n    }\r\n    attack(target) {\r\n        console.log(`${this.name}
-    attacks ${target.name}.`);\r\n        target.takeDamage(10);\r\n    }\r\n   
-    roar() {\r\n        console.log(`${this.name} roars loudly.`);\r\n    }\r\n}\r\nexports.Monster
-    = Monster;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTW9uc3Rlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1vbnN0ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQ0EscUNBQWtDO0FBR2xDLE1BQWEsT0FBUSxTQUFRLGVBQU07SUFDL0IsWUFBWSxJQUFZLEVBQUUsTUFBYztRQUNwQyxLQUFLLENBQUMsSUFBSSxFQUFFLE1BQU0sQ0FBQyxDQUFDO0lBQ3hCLENBQUM7SUFFRCxNQUFNLENBQUMsTUFBYztRQUNqQixPQUFPLENBQUMsR0FBRyxDQUFDLEdBQUcsSUFBSSxDQUFDLElBQUksWUFBWSxNQUFNLENBQUMsSUFBSSxHQUFHLENBQUMsQ0FBQztRQUNwRCxNQUFNLENBQUMsVUFBVSxDQUFDLEVBQUUsQ0FBQyxDQUFDO0lBQzFCLENBQUM7SUFFRCxJQUFJO1FBQ0EsT0FBTyxDQUFDLEdBQUcsQ0FBQyxHQUFHLElBQUksQ0FBQyxJQUFJLGdCQUFnQixDQUFDLENBQUM7SUFDOUMsQ0FBQztDQUNKO0FBYkQsMEJBYUMifQ==","assetPath":"Assets/MonsterHunter/ZepetoScript/Common/Monster.ts","manifest":{"properties":[],"name":"Monster","description":""},"isCompiled":true}'
-  typescriptHash: 0ae946fe6b837beb447a0af6268d0479
+    { value: true });\r\nconst Entity_1 = require(\"./Entity\");\r\nconst ZEPETO_Multiplay_1
+    = require(\"ZEPETO.Multiplay\");\r\nconst MultiplayManager_1 = require(\"../../../Zepeto
+    Multiplay Component/ZepetoScript/Common/MultiplayManager\");\r\nconst TransformSyncHelper_1
+    = require(\"../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper\");\r\nclass
+    Monster extends Entity_1.default {\r\n    constructor(ObjectId, MaxHp) {\r\n       
+    super(ObjectId, MaxHp);\r\n        this.SetEntity();\r\n    }\r\n    Start()
+    {\r\n    }\r\n    SetEntity() {\r\n        const data = new ZEPETO_Multiplay_1.RoomData();\r\n       
+    data.Add(\"ObjectId\", this.GetComponent($typeof(TransformSyncHelper_1.default)).Id);\r\n       
+    data.Add(\"MaxHp\", 10);\r\n        MultiplayManager_1.default.instance.room.Send(\"SetEntity\",
+    data);\r\n    }\r\n    Attack(target) {\r\n        console.log(`${this.name}
+    attacks ${target.name}.`);\r\n        target.TakeDamage(10);\r\n    }\r\n}\r\nexports.default
+    = Monster;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTW9uc3Rlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1vbnN0ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxxQ0FBOEI7QUFFOUIsdURBQTBDO0FBQzFDLCtHQUF3RztBQUN4Ryx3SEFBaUg7QUFFakgsTUFBcUIsT0FBUSxTQUFRLGdCQUFNO0lBT3ZDLFlBQVksUUFBZ0IsRUFBRSxLQUFhO1FBQ3ZDLEtBQUssQ0FBQyxRQUFRLEVBQUUsS0FBSyxDQUFDLENBQUM7UUFDdkIsSUFBSSxDQUFDLFNBQVMsRUFBRSxDQUFDO0lBQ3JCLENBQUM7SUFORCxLQUFLO0lBQ0wsQ0FBQztJQU9ELFNBQVM7UUFDTCxNQUFNLElBQUksR0FBRyxJQUFJLDJCQUFRLEVBQUUsQ0FBQztRQUM1QixJQUFJLENBQUMsR0FBRyxDQUFDLFVBQVUsRUFBRSxJQUFJLENBQUMsWUFBWSxTQUFDLDZCQUFtQixHQUFJLEVBQUUsQ0FBQyxDQUFDO1FBQ2xFLElBQUksQ0FBQyxHQUFHLENBQUMsT0FBTyxFQUFFLEVBQUUsQ0FBQyxDQUFDO1FBQ3RCLDBCQUFnQixDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLFdBQVcsRUFBRSxJQUFJLENBQUMsQ0FBQztJQUMzRCxDQUFDO0lBRUQsTUFBTSxDQUFDLE1BQWM7UUFDakIsT0FBTyxDQUFDLEdBQUcsQ0FBQyxHQUFHLElBQUksQ0FBQyxJQUFJLFlBQVksTUFBTSxDQUFDLElBQUksR0FBRyxDQUFDLENBQUM7UUFDcEQsTUFBTSxDQUFDLFVBQVUsQ0FBQyxFQUFFLENBQUMsQ0FBQztJQUMxQixDQUFDO0NBRUo7QUF4QkQsMEJBd0JDIn0=","assetPath":"Assets/MonsterHunter/ZepetoScript/Base/Monster.ts","manifest":{"properties":[{"assembly":"","name":"rewardExp","type":"any","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"","name":"rewardCoin","type":"any","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"maxHp","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"hp","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"Monster","description":""},"isCompiled":true}'
+  typescriptHash: 8c8dd7b0000a7d72f9b58a1194b22599
   onlyWriteTrigger: 0

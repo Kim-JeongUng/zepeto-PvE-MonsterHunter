@@ -1,6 +1,6 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 
-export abstract class Entity extends ZepetoScriptBehaviour{
+export default abstract class Entity extends ZepetoScriptBehaviour{
     private _name: string;
     public get name(): string {
         return this._name;
@@ -8,20 +8,26 @@ export abstract class Entity extends ZepetoScriptBehaviour{
     public set name(value: string) {
         this._name = value;
     }
-    health: number;
-
-    constructor(name: string, health: number) {
+    maxHp: number;
+    hp: number;
+    
+    constructor(objectId: string, maxHp: number) {
         super();
-        this.name = name;
-        this.health = health;
+        this.name = objectId;
+        this.maxHp = maxHp;
+        this.hp = maxHp;
     }
 
-    abstract attack(target: Entity): void;
+    abstract Attack(target: Entity): void;
 
-    takeDamage(damage: number) {
-        this.health -= damage;
-        if (this.health <= 0) {
+    TakeDamage(quantity: number) {
+        this.hp -= quantity;
+        if (this.hp <= 0) {
             console.log(`${this.name} has been defeated.`);
         }
+    }
+    
+    GainHp(quantity: number) {
+        this.hp = this.hp + quantity > this.maxHp ?  this.hp + quantity : this.maxHp;
     }
 }
