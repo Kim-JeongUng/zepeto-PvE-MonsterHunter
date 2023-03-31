@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 635656094552876721}
   - component: {fileID: -5768436758575285217}
   - component: {fileID: -1524556299767436093}
-  m_Layer: 0
+  - component: {fileID: -7958975785481762118}
+  m_Layer: 7
   m_Name: Hero_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,3 +196,16 @@ MonoBehaviour:
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: a5a4670e8f658467baab467130ddf097, type: 3}
     isExpaned: 0
+--- !u!65 &-7958975785481762118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165062935040014730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06766749, y: 0.2677786, z: 0.65853596}
+  m_Center: {x: 0, y: 0, z: 0.5670605}

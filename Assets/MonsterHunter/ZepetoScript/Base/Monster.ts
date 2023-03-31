@@ -14,7 +14,7 @@ export default class Monster extends Entity implements IMonster {
     
     constructor(objectId: string, maxHp: number) {
         super(objectId, maxHp);
-        this.SetEntity(objectId,maxHp);
+        //this.SetEntity(objectId,maxHp);
     }
 
     SetEntity(objectId:string, maxHp:number){

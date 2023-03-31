@@ -2,6 +2,7 @@ import {Sandbox, SandboxOptions, SandboxPlayer} from "ZEPETO.Multiplay";
 import { Player } from "ZEPETO.Multiplay.Schema";
 import { IModule } from "./ServerModule/IModule";
 import SyncComponentModule from "./ServerModule/Modules/SyncComponentModule";
+import MonsterHunterModule from "./ServerModule/Modules/MonsterHunterModule";
 
 export default class extends Sandbox {
 
