@@ -10,24 +10,14 @@ export default class Monster extends Entity implements IMonster {
     @SerializeField() protected rewardExp:number;
     @SerializeField() protected rewardCoin:number;
     
-    Start(){
-        this.StartCoroutine(this.SetEntity());
-    }
-    
-    constructor(objectId: string, maxHp: number) {
-        super(objectId, maxHp);
+    constructor(isMonster:boolean) {
+        super(true);
     }
 
-    private * SetEntity(){
-        yield new WaitUntil(()=>MultiplayManager.instance.room != null )
-        const objId = this.GetComponent<TransformSyncHelper>().Id;
-        const data = new RoomData();
-        data.Add("ObjectId", objId);
-        data.Add("isMonster", true);
-        data.Add("MaxHp", this.maxHp);
-        MultiplayManager.instance.room.Send("SetEntity", data.GetObject());
+    protected override Start(){
+        
     }
-    
+
     Attack(target: Entity) {
         console.log(`${this.name} attacks ${target.name}.`);
         target.TakeDamage(10);

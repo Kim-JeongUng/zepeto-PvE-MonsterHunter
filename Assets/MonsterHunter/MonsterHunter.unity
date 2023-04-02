@@ -872,24 +872,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script:
-    keys:
-    - attackDamage
-    - rewardCoin
-    - rewardExp
-    - maxHp
-    - hp
-    unityValues:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    values:
-    - '{"type":"System.Single, mscorlib","value":"5"}'
-    - '{"type":"System.Single, mscorlib","value":"10"}'
-    - '{"type":"System.Single, mscorlib","value":"10"}'
-    - '{"type":"System.Single, mscorlib","value":"100"}'
-    - '{"type":"System.Single, mscorlib","value":"100"}'
+    keys: []
+    unityValues: []
+    values: []
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: ee7459678532a48758492264b2d6f474, type: 3}
@@ -938,7 +923,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     values:
-    - '{"type":"System.String, mscorlib","value":"1"}'
+    - '{"type":"System.String, mscorlib","value":"0"}'
     - '{"type":"System.Boolean, mscorlib","value":"False"}'
     - '{"type":"System.Boolean, mscorlib","value":"False"}'
     - '{"type":"System.Single, mscorlib","value":"10"}'
@@ -983,12 +968,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 3
-  m_Radius: 1
+  m_Radius: 2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &2114013771
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,8 @@ import Entity from "../Base/Entity";
 import Sword from '../Equipment/Sword';
 
 export default class CombatController extends Entity {
-    constructor(name: string, health: number) {
-        super(name, health);
+    constructor(isMonster:boolean) {
+        super(false);
     }
 
     Attack(target: Entity) {
@@ -21,7 +21,7 @@ export default class CombatController extends Entity {
     private _attackFlag : boolean = false;
     private _localSword : Collider;
     
-    Start() {
+    protected Start() {
         this.OnLocalCharacterLoaded();
         this._localCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
         this.animationClip = Resources.Load("Slash1") as AnimationClip;

@@ -1,6 +1,6 @@
 import { SandboxPlayer } from "ZEPETO.Multiplay";
 import { IModule } from "../IModule";
-import {GameEntity, SyncTransform} from "ZEPETO.Multiplay.Schema";
+import {GameEntity} from "ZEPETO.Multiplay.Schema";
 
 export default class MonsterHunterModule extends IModule {
 
@@ -8,7 +8,7 @@ export default class MonsterHunterModule extends IModule {
         /**Monster Sync**/
         this.server.onMessage(MESSAGE.SetEntity, (client, message) => {
             const { ObjectId, isMonster, MaxHp, Hp } = message;
-
+            console.log("Set");
             let entity = this.server.state.GameEntities.get(ObjectId.toString());
             if (!entity) {
                 entity = new GameEntity();
@@ -17,7 +17,7 @@ export default class MonsterHunterModule extends IModule {
                 entity.isMonster = isMonster;
                 entity.MaxHp = MaxHp;
                 entity.Hp = Hp ?? MaxHp;
-
+                console.log("set entity");
                 this.server.state.GameEntities.set(ObjectId.toString(), entity);
             }
         });
@@ -26,6 +26,7 @@ export default class MonsterHunterModule extends IModule {
             const { ObjectId, quantity } = message;
             let entity = this.server.state.GameEntities.get(ObjectId.toString());
             if(entity) {
+                console.log("TakeDamage");
                 let currentHp = entity.Hp - quantity;
                 if (currentHp <= 0) {
                     this.DeathEvent(client.sessionId, ObjectId);
