@@ -17,6 +17,7 @@ export default class LocalCharacterManager extends ZepetoScriptBehaviour {
             this.EquipItem(this.itemName);
             
             this._localCharacter.gameObject.AddComponent<CombatController>();
+            
         });
     }
 

@@ -20,11 +20,23 @@ export default class CombatController extends Entity {
     private _attackBtn : Button;
     private _attackFlag : boolean = false;
     private _localSword : Collider;
-    
-    protected Start() {
+
+    public Start() {
+        super.Start();
         this.OnLocalCharacterLoaded();
         this._localCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
         this.animationClip = Resources.Load("Slash1") as AnimationClip;
+        this.StartCoroutine(this.LoadDataStroage());
+    }
+    
+    private * LoadDataStroage(){
+        //TODO Load Data Storage
+        yield new WaitForSeconds(0.1);
+        this.maxHp = 100;
+        this.hp = 100;
+        this.attackPower = 100;
+        this.skillPower = 100;
+        this.SetEntity();
     }
     
     private OnLocalCharacterLoaded(){

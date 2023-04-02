@@ -8,18 +8,13 @@ export default class MonsterHunterModule extends IModule {
         /**Monster Sync**/
         this.server.onMessage(MESSAGE.SetEntity, (client, message) => {
             const { ObjectId, isMonster, MaxHp, Hp } = message;
-            console.log("Set");
-            let entity = this.server.state.GameEntities.get(ObjectId.toString());
-            if (!entity) {
-                entity = new GameEntity();
-
-                entity.ObjectId = ObjectId;
-                entity.isMonster = isMonster;
-                entity.MaxHp = MaxHp;
-                entity.Hp = Hp ?? MaxHp;
-                console.log("set entity");
-                this.server.state.GameEntities.set(ObjectId.toString(), entity);
-            }
+            const entity = new GameEntity();
+            entity.ObjectId = ObjectId;
+            entity.isMonster = isMonster;
+            entity.MaxHp = MaxHp;
+            entity.Hp = Hp ?? MaxHp;
+            console.log("set entity");
+            this.server.state.GameEntities.set(ObjectId.toString(), entity);
         });
 
         this.server.onMessage(MESSAGE.TakeDamage, (client, message) => {

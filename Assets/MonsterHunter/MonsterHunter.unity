@@ -872,9 +872,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script:
-    keys: []
-    unityValues: []
-    values: []
+    keys:
+    - rewardExp
+    - rewardCoin
+    - maxHp
+    - hp
+    - attackPower
+    - skillPower
+    - isMonster
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    values:
+    - '{"type":"System.Single, mscorlib","value":"10"}'
+    - '{"type":"System.Single, mscorlib","value":"10"}'
+    - '{"type":"System.Single, mscorlib","value":"100"}'
+    - '{"type":"System.Single, mscorlib","value":"100"}'
+    - '{"type":"System.Single, mscorlib","value":"10"}'
+    - '{"type":"System.Single, mscorlib","value":"10"}'
+    - '{"type":"System.Boolean, mscorlib","value":"False"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: ee7459678532a48758492264b2d6f474, type: 3}

@@ -14,10 +14,6 @@ export default class Monster extends Entity implements IMonster {
         super(true);
     }
 
-    protected override Start(){
-        
-    }
-
     Attack(target: Entity) {
         console.log(`${this.name} attacks ${target.name}.`);
         target.TakeDamage(10);

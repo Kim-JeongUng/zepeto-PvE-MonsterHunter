@@ -1,16 +1,17 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import {WaitUntil} from "UnityEngine";
+import {Object, WaitUntil} from "UnityEngine";
 import {RoomData} from "ZEPETO.Multiplay";
 import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
 import {State, GameEntity} from "ZEPETO.Multiplay.Schema";
+import {ZepetoWorldMultiplay} from "ZEPETO.World";
 
 export default abstract class Entity extends ZepetoScriptBehaviour{
     @SerializeField() protected maxHp: number;
     @SerializeField() protected hp: number;
     @SerializeField() protected attackPower: number;
     @SerializeField() protected skillPower: number;
-    @SerializeField() protected isMonster: boolean;
+    protected isMonster: boolean;
     
     private _gameEntity :GameEntity;
     
@@ -19,43 +20,40 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
         this.isMonster = isMonster;
     }
 
-    protected Start(){
-        this.WaitRoom();
+    public Start(){
+        this.StartCoroutine(this.WaitRoom());
     }
     
     private *WaitRoom(){
         yield new WaitUntil(()=>MultiplayManager.instance.room != null );
 
-        MultiplayManager.instance.room.OnStateChange += this.OnStateChange;
-    }
-
-
-    // Access the entire server schema at first startup and connect the sync Id schema.
-    private OnStateChange(state: State, isFirst: boolean) {
-        if (null == this._gameEntity) {
-            const objId = this.GetComponent<TransformSyncHelper>().Id;
-            this._gameEntity = state.GameEntities.get_Item(objId);
-            if (this._gameEntity) {
-                this.OnChangeEntity();
-    
-                this._gameEntity.add_OnChange(() => {
-                    this.OnChangeEntity();
-                });
-                MultiplayManager.instance.room.OnStateChange -= this.OnStateChange;
-            } else {
-                // Initial definition if not defined on the server              
-                this.StartCoroutine(this.SetEntity(objId));
-            }
+        const objId = this.GetComponent<TransformSyncHelper>().Id;
+        
+        if(MultiplayManager.instance.room.State.GameEntities?.get_Item(objId) == null ) {
+            this.SetEntity(objId);
+            yield new WaitUntil(() =>MultiplayManager.instance.room.State.GameEntities?.get_Item(objId) != null);
         }
+        
+        this._gameEntity = MultiplayManager.instance.room.State.GameEntities?.get_Item(objId);
+        this.OnChangeEntity();
+        this._gameEntity.add_OnChange(() => {
+            this.OnChangeEntity();
+        });
     }
-    
+
     private OnChangeEntity(){
+        this.hp = this._gameEntity.Hp;
         console.log("Change Entity");
+        console.log(this.hp);
     }
     
-    private * SetEntity(objId:string){
+    private SetHPbarUI(){
+        
+    }
+    
+    protected SetEntity(objId?:string){
         const data = new RoomData();
-        data.Add("ObjectId", objId);
+        data.Add("ObjectId", objId ?? this.GetComponent<TransformSyncHelper>().Id);
         data.Add("isMonster", this.isMonster);
         data.Add("MaxHp", this.maxHp);
         MultiplayManager.instance.room.Send("SetEntity", data.GetObject());
