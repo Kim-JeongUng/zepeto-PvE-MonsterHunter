@@ -11,11 +11,11 @@ export default class Sword extends ZepetoScriptBehaviour {
     }
     
     // only can trig enemy (layer setting) 
-    private OnTriggerEnter(coll: Collider) {
+    private OnTriggerEnter(coll: Collider) {        
         const data = new RoomData();
-        data.Add("objectId", coll.GetComponent<TransformSyncHelper>().Id);
+        data.Add("ObjectId", coll.GetComponent<TransformSyncHelper>().Id);
         data.Add("quantity", 10);
 
-        MultiplayManager.instance.room.Send("DamageToMonster", data);
+        MultiplayManager.instance.room.Send("TakeDamage", data.GetObject());
     }
 }
