@@ -5,8 +5,9 @@ import {GameEntity} from "ZEPETO.Multiplay.Schema";
 export default class MonsterHunterModule extends IModule {
 
     async OnCreate() {
-        /**Transform Sync**/
+        /**Monster Sync**/
         this.server.onMessage(MESSAGE.SetEntity, (client, message) => {
+            console.log(message.ObjectId+"Spawn");
             const { ObjectId, isMonster, MaxHp, Hp } = message;
             let entity = this.server.state.GameEntities.get(ObjectId.toString());
             if (!entity) {

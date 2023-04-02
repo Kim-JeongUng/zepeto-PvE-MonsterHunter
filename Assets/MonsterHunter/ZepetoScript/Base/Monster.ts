@@ -2,6 +2,7 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import Entity from "./Entity";
 import { IMonster } from "./IMonster";
 import {RoomData} from "ZEPETO.Multiplay";
+import {WaitUntil} from "UnityEngine";
 import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
 
@@ -10,19 +11,21 @@ export default class Monster extends Entity implements IMonster {
     @SerializeField() protected rewardCoin:number;
     
     Start(){
+        this.StartCoroutine(this.SetEntity());
     }
     
     constructor(objectId: string, maxHp: number) {
         super(objectId, maxHp);
-        //this.SetEntity(objectId,maxHp);
     }
 
-    SetEntity(objectId:string, maxHp:number){
+    private * SetEntity(){
+        yield new WaitUntil(()=>MultiplayManager.instance.room != null )
+        const objId = this.GetComponent<TransformSyncHelper>().Id;
         const data = new RoomData();
-        data.Add("ObjectId", objectId);
+        data.Add("ObjectId", objId);
         data.Add("isMonster", true);
-        data.Add("MaxHp", maxHp);
-        MultiplayManager.instance.room.Send("SetEntity", data);
+        data.Add("MaxHp", this.maxHp);
+        MultiplayManager.instance.room.Send("SetEntity", data.GetObject());
     }
     
     Attack(target: Entity) {

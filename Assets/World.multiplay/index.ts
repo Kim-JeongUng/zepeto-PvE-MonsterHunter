@@ -11,6 +11,7 @@ export default class extends Sandbox {
     
     async onCreate(options: SandboxOptions) {
         this._modules.push(new SyncComponentModule(this));
+        this._modules.push(new MonsterHunterModule(this));
         for (const module of this._modules) {
             await module.OnCreate();
         }
