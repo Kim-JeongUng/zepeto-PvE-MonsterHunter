@@ -9,7 +9,6 @@ export default class SyncComponentModule extends IModule {
 
     async OnCreate() {
         /**Zepeto Player Sync**/
-        
         this.server.onMessage(MESSAGE.SyncPlayer, (client, message) => {
             const player = this.server.state.players.get(client.sessionId);
             if (player) {
@@ -45,6 +44,19 @@ export default class SyncComponentModule extends IModule {
             const syncTransform = this.server.state.SyncTransforms.get(message.Id);
             if(syncTransform !== undefined) {
                 syncTransform.status = message.Status;
+            }
+        });
+
+        /** Sync Animaotr **/
+        this.server.onMessage(MESSAGE.SyncAnimator, (client, message) => {
+            const animator: SyncAnimator = {
+                Id: message.Id,
+                clipNameHash: message.clipNameHash,
+                clipNormalizedTime: message.clipNormalizedTime,
+            };
+            const masterClient = this.masterClient();
+            if (masterClient !== null && masterClient !== undefined) {
+                this.server.broadcast(MESSAGE.ResponseAnimator + message.Id, animator, {except: masterClient});
             }
         });
 
@@ -183,6 +195,12 @@ interface syncTween {
     sendTime: number,
 }
 
+interface SyncAnimator {
+    Id: string,
+    clipNameHash: number,
+    clipNormalizedTime: number,
+}
+
 interface InstantiateObj{
     Id:string;
     prefabName:string;
@@ -201,6 +219,8 @@ enum MESSAGE {
     SyncPlayer = "SyncPlayer",
     SyncTransform = "SyncTransform",
     SyncTransformStatus = "SyncTransformStatus",
+    SyncAnimator = "SyncAnimator",
+    ResponseAnimator = "ResponseAnimator",
     ChangeOwner = "ChangeOwner",
     Instantiate = "Instantiate",
     RequestInstantiateCache = "RequestInstantiateCache",
@@ -224,5 +244,5 @@ enum MESSAGE {
     FinishPlayer = "FinishPlayer",
     FirstPlayerGetIn = "FirstPlayerGetIn",
     CountDownStart = "CountDownStart",
-    ResponseGameReport = "ResponseGameReport"
+    ResponseGameReport = "ResponseGameReport",
 }
