@@ -181,7 +181,7 @@ public class ModuleImporter : EditorWindow
 
         if (GUILayout.Button("View Import Guide", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
-            string url = Path.Combine(ConstantManager.REPO_PATH, GetRemoveSpace(_selectedData.Title), "README.md");
+            string url = Path.Combine(ConstantManager.REPO_PATH, GetRemoveSpace(_selectedData.Title), ConstantManager.README_PATH);
             OpenLocalizeURL(url);
         }
 
