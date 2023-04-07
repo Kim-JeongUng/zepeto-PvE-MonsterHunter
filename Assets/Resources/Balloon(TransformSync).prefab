@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5473774131548141098}
   - component: {fileID: 5492737567433626934}
   - component: {fileID: -4003811350878186669}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Balloon(TransformSync)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
