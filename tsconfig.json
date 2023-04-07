@@ -12,6 +12,9 @@
 		],
 		"types": [
 			"./Assets/World.multiplay/SchemaTypes",
+			"./Library/PackageCache/zepeto.product@1.1.0-preview/Runtime/Script/Currency",
+			"./Library/PackageCache/zepeto.product@1.1.0-preview/Runtime/Script/Inventory",
+			"./Library/PackageCache/zepeto.product@1.1.0-preview/Runtime/Script/Product",
 			"./Library/PackageCache/zepeto.world@1.14.0",
 			"./Library/PackageCache/zepeto.world@1.14.0/typings/InputSystem",
 			"./Library/PackageCache/zepeto.world@1.14.0/typings/PostProcessing/Editor",
@@ -92,7 +95,8 @@
 			"./Library/PackageCache/zepeto.script.unityengine.typings@1.0.6/UnityEngine.VRModule",
 			"./Library/PackageCache/zepeto.script.unityengine.typings@1.0.6/UnityEngine.WindModule",
 			"./Library/PackageCache/zepeto.script.unityengine.typings@1.0.6/UnityEngine.XRModule",
-			"./Library/PackageCache/zepeto.script.leaderboard@1.1.8/Runtime"
+			"./Library/PackageCache/zepeto.script.leaderboard@1.1.8/Runtime",
+			"./Library/PackageCache/zepeto.world.gui@1.1.0-preview"
 		]
 	}
 }
