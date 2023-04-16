@@ -14,27 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productTextureInfo:
   - targetId: energy1
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_shopitem_energy01.png
   - targetId: energy2
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_shopitem_energy02.png
   - targetId: energy3
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_shopitem_energy03.png
   - targetId: energy4
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_shopitem_energy04.png
   - targetId: note1
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_note1.png
   - targetId: potion_package
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_potion_package0.png
   - targetId: potion1
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_potion1.png
   - targetId: potion2
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_potion2.png
   - targetId: potion3
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_potion3.png
   - targetId: potion4
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\product_potion4.png
   currencyTextureInfo:
   - targetId: energy
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\currency_energy.png
   - targetId: star
-    targetAssetPath: 
+    targetAssetPath: Assets/Product/Resources\currency_star.png
