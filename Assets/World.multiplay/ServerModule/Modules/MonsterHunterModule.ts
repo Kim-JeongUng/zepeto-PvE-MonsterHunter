@@ -18,13 +18,14 @@ export default class MonsterHunterModule extends IModule {
         });
 
         this.server.onMessage(MESSAGE.TakeDamage, (client, message) => {
-            const { ObjectId, quantity } = message;
-            let entity = this.server.state.GameEntities.get(ObjectId.toString());
+            const { attacker, victim, quantity } = message;
+            let entity = this.server.state.GameEntities.get(victim.toString());
             if(entity) {
                 console.log("TakeDamage");
                 let currentHp = entity.Hp - quantity;
-                if (currentHp <= 0) {
-                    this.DeathEvent(client.sessionId, ObjectId);
+                currentHp = currentHp < 0 ? 0 :entity.Hp;
+                if (currentHp == 0) {
+                    this.DeathEvent(attacker, victim);
                 }
                 entity.Hp =  currentHp;
             }
@@ -49,18 +50,16 @@ export default class MonsterHunterModule extends IModule {
     }
 
     DeathEvent(attacker:string, victim:string){
-        const deathEvent:DeathEvent={
-            attacker,
-            victim
-        }
-        this.server.broadcast("DeathEvent",deathEvent);
+        this.server.broadcast("DeathEvent"+victim,attacker);
+        this.server.broadcast("KillEvent"+attacker,victim);
     }
-    
 }
-interface DeathEvent{
-    attacker:string,
-    victim : string
-}
+
+// interface DeathEvent{
+//     attacker:string,
+//     victim : string
+// }
+
 enum MESSAGE {
     SetEntity = "SetEntity",
     TakeDamage = "TakeDamage",

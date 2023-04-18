@@ -20,14 +20,11 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    UnityEngine_1 = require(\"UnityEngine\");\r\nconst TransformSyncHelper_1 = require(\"../../../Zepeto
-    Multiplay Component/ZepetoScript/Transform/TransformSyncHelper\");\r\nconst MultiplayManager_1
-    = require(\"../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager\");\r\nconst
-    ZEPETO_Multiplay_1 = require(\"ZEPETO.Multiplay\");\r\nclass Sword extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    Start() {\r\n    }\r\n    // only can trig enemy (layer setting) \r\n   
-    OnTriggerEnter(coll) {\r\n        const data = new ZEPETO_Multiplay_1.RoomData();\r\n       
-    data.Add(\"ObjectId\", coll.GetComponent($typeof(TransformSyncHelper_1.default)).Id);\r\n       
-    data.Add(\"quantity\", 10);\r\n        MultiplayManager_1.default.instance.room.Send(\"TakeDamage\",
-    data.GetObject());\r\n    }\r\n}\r\nexports.default = Sword;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3dvcmQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTd29yZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCw2Q0FBcUM7QUFFckMsd0hBQWlIO0FBQ2pILCtHQUF3RztBQUN4Ryx1REFBMEM7QUFFMUMsTUFBcUIsS0FBTSxTQUFRLHFDQUFxQjtJQUVwRCxLQUFLO0lBQ0wsQ0FBQztJQUVELHVDQUF1QztJQUMvQixjQUFjLENBQUMsSUFBYztRQUNqQyxNQUFNLElBQUksR0FBRyxJQUFJLDJCQUFRLEVBQUUsQ0FBQztRQUM1QixJQUFJLENBQUMsR0FBRyxDQUFDLFVBQVUsRUFBRSxJQUFJLENBQUMsWUFBWSxTQUFDLDZCQUFtQixHQUFJLEVBQUUsQ0FBQyxDQUFDO1FBQ2xFLElBQUksQ0FBQyxHQUFHLENBQUMsVUFBVSxFQUFFLEVBQUUsQ0FBQyxDQUFDO1FBRXpCLDBCQUFnQixDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLFlBQVksRUFBRSxJQUFJLENBQUMsU0FBUyxFQUFFLENBQUMsQ0FBQztJQUN4RSxDQUFDO0NBQ0o7QUFiRCx3QkFhQyJ9","assetPath":"Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts","manifest":{"properties":[],"name":"Sword","description":""},"isCompiled":true}'
-  typescriptHash: cb4260ca67804b707fb7cb8f5aa11674
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst CombatController_1 = require(\"../Character/CombatController\");\r\nclass
+    Sword extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
+    this._combatController = this.GetComponent($typeof(CombatController_1.default));\r\n   
+    }\r\n    // only can trig enemy (layer setting) \r\n    OnTriggerEnter(coll)
+    {\r\n        this._combatController.AttackMonster(coll);\r\n    }\r\n}\r\nexports.default
+    = Sword;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3dvcmQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTd29yZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCw2Q0FBcUM7QUFHckMsb0VBQTZEO0FBRTdELE1BQXFCLEtBQU0sU0FBUSxxQ0FBcUI7SUFHcEQsS0FBSztRQUNELElBQUksQ0FBQyxpQkFBaUIsR0FBRyxJQUFJLENBQUMsWUFBWSxTQUFDLDBCQUFnQixFQUFHLENBQUM7SUFDbkUsQ0FBQztJQUVELHVDQUF1QztJQUMvQixjQUFjLENBQUMsSUFBYztRQUNqQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsYUFBYSxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQy9DLENBQUM7Q0FDSjtBQVhELHdCQVdDIn0=","assetPath":"Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts","manifest":{"properties":[],"name":"Sword","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 1a6837a7f78943c2b873ee2f9f85ba01
   onlyWriteTrigger: 0

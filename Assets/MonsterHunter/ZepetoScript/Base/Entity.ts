@@ -39,6 +39,11 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
         this._gameEntity.add_OnChange(() => {
             this.OnChangeEntity();
         });
+
+
+        MultiplayManager.instance.room.AddMessageHandler("DeathEvent"+objId, (serverTime: number) => {
+            this.OnDie();
+        });
     }
 
     private OnChangeEntity(){

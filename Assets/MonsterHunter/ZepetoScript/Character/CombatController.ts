@@ -4,6 +4,9 @@ import {GameObject, AnimationClip, WaitForSeconds, Resources, Collider} from "Un
 import {Button} from "UnityEngine.UI";
 import Entity from "../Base/Entity";
 import Sword from '../Equipment/Sword';
+import {RoomData} from "ZEPETO.Multiplay";
+import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
+import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
 
 export default class CombatController extends Entity {
     constructor(isMonster:boolean) {
@@ -27,6 +30,16 @@ export default class CombatController extends Entity {
         this._localCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
         this.animationClip = Resources.Load("Slash1") as AnimationClip;
         this.StartCoroutine(this.LoadDataStroage());
+    }
+    
+    public AttackMonster(coll:Collider){
+        
+        const data = new RoomData();
+        data.Add("attacker", this.GetComponent<TransformSyncHelper>().Id);
+        data.Add("victim", coll.GetComponent<TransformSyncHelper>().Id);
+        data.Add("quantity", this.attackPower);
+
+        MultiplayManager.instance.room.Send("TakeDamage", data.GetObject());
     }
     
     private * LoadDataStroage(){
