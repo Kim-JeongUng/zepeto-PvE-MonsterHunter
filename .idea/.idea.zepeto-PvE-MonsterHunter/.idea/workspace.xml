@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c97064d5-589c-4f57-8d69-27795ea72d07" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/Demo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Monster.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Monster.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Monster.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Monster.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Product Module/ZepetoScript/UI/UIBalances.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Product Module/ZepetoScript/UI/UIBalances.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Product Module/ZepetoScript/UI/UIBalances.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Product Module/ZepetoScript/UI/UIBalances.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,17 +31,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\USER\\Desktop\\UnityStudy\\zepeto-PvE-MonsterHunter\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "ts.external.directory.path": "C:\\Users\\USER\\Desktop\\UnityStudy\\zepeto-PvE-MonsterHunter\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\jungung\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\jungung\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\jungung\\AppData\\Local\\Symbols\\src"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Node.js/Chrome.Zepeto Multiplay Script">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2020.3.9f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Unity\zepeto\zepeto-PvE-MonsterHunter -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Unity\zepeto\zepeto-PvE-MonsterHunter" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2020.3.9f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Unity\zepeto\zepeto-PvE-MonsterHunter -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Unity\zepeto\zepeto-PvE-MonsterHunter" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2020.3.9f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -76,6 +114,7 @@
       <workItem from="1680854363211" duration="519000" />
       <workItem from="1681629056365" duration="1706000" />
       <workItem from="1681633501987" duration="2000" />
+      <workItem from="1681754544344" duration="781000" />
     </task>
     <servers />
   </component>

@@ -63,6 +63,7 @@ export default class UIBalances extends ZepetoScriptBehaviour {
     }
     
     public IncreaseExp(quantity:number){
+        // TODO : 데이터스토리지 레벨, 경험치 구현
         this._myExp += quantity;
         if(this._myExp >= this._amountExp){
             this._myLevel++;

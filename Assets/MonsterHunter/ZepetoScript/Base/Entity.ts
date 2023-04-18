@@ -65,7 +65,12 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
         this.hp -= quantity;
         if (this.hp <= 0) {
             console.log(`${this.name} has been defeated.`);
+            this.OnDie();
         }
+    }
+
+    protected OnDie(){
+        console.log("die");
     }
     
     GainHp(quantity: number) {

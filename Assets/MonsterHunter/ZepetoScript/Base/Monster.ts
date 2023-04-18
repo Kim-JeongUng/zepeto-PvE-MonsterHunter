@@ -13,10 +13,15 @@ export default class Monster extends Entity implements IMonster {
     constructor(isMonster:boolean) {
         super(true);
     }
-
+    
     Attack(target: Entity) {
         console.log(`${this.name} attacks ${target.name}.`);
         target.TakeDamage(10);
+    }
+    
+    OnDie(){
+        super.OnDie();
+        
     }
 
 }
