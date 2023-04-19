@@ -43,8 +43,7 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
 
     private OnChangeEntity(){
         this.hp = this._gameEntity.Hp;
-        console.log("Change Entity");
-        console.log(this.hp);
+        console.log("Change Entity"+this.hp);
         if(this.hp === 0){
             this.OnDie();
         }

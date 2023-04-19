@@ -66,9 +66,8 @@ export default class ProductModule extends IModule {
             this.SetStorage(client, key, value);
         });
 
-        this.server.onMessage("onGetStorage", (client, message:StorageMessage) => {
+        this.server.onMessage("onGetStorage", (client, key:string) => {
 
-            const key = message.key;
             console.log(`[onGetStorage] ${key}`);
 
             this.GetStorage(client, key);
@@ -92,19 +91,14 @@ export default class ProductModule extends IModule {
 
 
     async GetStorage(client: SandboxPlayer, key: string) {
-
         try {
             const dataStorage = await loadDataStorage(client.userId);
-            const result = await dataStorage.get(key) as string;
-
-            if (result === undefined) {
-                // it is an empty string
-                client.send("onGetStorageResult", "");
-            } else
-            {
-                client.send("onGetStorageResult", result);
+            const result = await dataStorage.get(key) as number;
+            const storageMessage: StorageMessage = {
+                key : key,
+                value : result ?? null
             }
-
+            client.send("onGetStorageResult", storageMessage);
         }
         catch (e)
         {
@@ -123,8 +117,6 @@ export default class ProductModule extends IModule {
                 inventoryAction : InventoryAction.Add
             }
             client.send("SyncInventories",inventorySync);
-            console.log("success add");
-
         }
         catch (e)
         {
@@ -243,7 +235,7 @@ interface InventoryMessage {
 
 interface StorageMessage {
     key: string,
-    value?: string,
+    value?: number,
 }
 
 interface InventorySync {
