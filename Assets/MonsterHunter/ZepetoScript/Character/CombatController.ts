@@ -9,14 +9,6 @@ import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScrip
 import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
 
 export default class CombatController extends Entity {
-    constructor(isMonster:boolean) {
-        super(false);
-    }
-
-    Attack(target: Entity) {
-        console.log(`${this.name} attacks ${target.name}.`);
-        target.TakeDamage(10);
-    }
     
     @SerializeField() private animationClip : AnimationClip;
     private _localCharacter: ZepetoCharacter;
@@ -24,12 +16,20 @@ export default class CombatController extends Entity {
     private _attackFlag : boolean = false;
     private _localSword : Collider;
 
+    constructor(isMonster:boolean) {
+        super(false);
+    }
+
     public Start() {
         super.Start();
         this.OnLocalCharacterLoaded();
         this._localCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
         this.animationClip = Resources.Load("Slash1") as AnimationClip;
         this.StartCoroutine(this.LoadDataStroage());
+    }
+    Attack(target: Entity) {
+        console.log(`${this.name} attacks ${target.name}.`);
+        target.TakeDamage(10);
     }
     
     public AttackMonster(coll:Collider){

@@ -39,17 +39,15 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
         this._gameEntity.add_OnChange(() => {
             this.OnChangeEntity();
         });
-
-
-        MultiplayManager.instance.room.AddMessageHandler("DeathEvent"+objId, (serverTime: number) => {
-            this.OnDie();
-        });
     }
 
     private OnChangeEntity(){
         this.hp = this._gameEntity.Hp;
         console.log("Change Entity");
         console.log(this.hp);
+        if(this.hp === 0){
+            this.OnDie();
+        }
     }
     
     private SetHPbarUI(){
@@ -76,6 +74,9 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
 
     protected OnDie(){
         console.log("die");
+        // TODO : Death anim 
+        // reward
+        // state
     }
     
     GainHp(quantity: number) {
