@@ -37,6 +37,19 @@ export default class MonsterHunterModule extends IModule {
             let currentHp = entity.Hp + quantity > entity.MaxHp ? entity.MaxHp : entity.Hp + quantity;
             Object.assign(entity.Hp, currentHp);
         });
+
+        // DataStorage
+        this.server.onMessage("SetDataStorage", (client, storageMessage:Map<string, number> ) => {
+
+            console.log(`[onSetStorage]`);
+            this.SetStorage(client, storageMessage);
+        });
+
+        this.server.onMessage('MGetDataStorage', async (client: SandboxPlayer, keys: string[]) => {
+            console.log(`[onGetStorage] ${keys.length}`);
+
+            this.GetStorage(client, keys);
+        });
     }
 
     async OnJoin(client: SandboxPlayer) {
@@ -53,6 +66,49 @@ export default class MonsterHunterModule extends IModule {
         this.server.broadcast("DeathEvent"+victim,attacker);
         this.server.broadcast("KillEvent"+attacker,victim);
     }
+
+    async SetStorage(client: SandboxPlayer,storageMessage:Map<string, number> ) {
+
+        try {
+            console.log("SET!!!");
+            const storage = client.loadDataStorage();
+            // storageMessage.forEach()
+            // const keyValues = Array.from(storageMessage.entries()).map(([key, value]) => ({
+            //     key,
+            //     value
+            // }));
+            const success = await storage.mset<number>(storageMessage);
+            if(success){
+                this.GetStorage(client,storageMessage.keys());
+            }
+            
+        }
+        catch (e)
+        {
+            console.log(`${e}`);
+        }
+    }
+
+
+    async GetStorage(client: SandboxPlayer, keys: string[]) {
+
+        try {
+            const storage = client.loadDataStorage();
+            const keyValeus = await storage.mget(keys);
+            console.log("get");
+            if(keyValeus)
+                client.send("StorageResult", keyValeus);
+            else{
+                console.log('exception');
+            }
+        }
+        catch (e)
+        {
+            console.log(`${e}`);
+        }
+    }
+    
+
 }
 
 // interface DeathEvent{
