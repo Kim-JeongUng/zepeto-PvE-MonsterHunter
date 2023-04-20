@@ -18,49 +18,6 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nexports.DataEnum = void 0;\r\nconst ZEPETO_Character_Controller_1
-    = require(\"ZEPETO.Character.Controller\");\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
-    UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst Entity_1 = require(\"../Base/Entity\");\r\nconst
-    Sword_1 = require(\"../Equipment/Sword\");\r\nconst ZEPETO_Multiplay_1 = require(\"ZEPETO.Multiplay\");\r\nconst
-    TransformSyncHelper_1 = require(\"../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper\");\r\nconst
-    MultiplayManager_1 = require(\"../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager\");\r\nclass
-    CombatController extends Entity_1.default {\r\n    constructor(isMonster) {\r\n       
-    super(false);\r\n        this.characterData = new Map();\r\n        this.DataSet
-    = [DataEnum.MaxHp, DataEnum.AD, DataEnum.Level, DataEnum.Exp];\r\n        this._attackFlag
-    = false;\r\n    }\r\n    Start() {\r\n        super.Start();\r\n        this.OnLocalCharacterLoaded();\r\n       
-    this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
-    this.animationClip = UnityEngine_1.Resources.Load(\"Slash1\");\r\n        this._room
-    = MultiplayManager_1.default.instance.room;\r\n        this.GetAllPlayerData();\r\n       
-    this._room.AddMessageHandler(\"onGetAllPlayerDataResult\", (message) => {\r\n           
-    console.log(\"Get Success\");\r\n            for (let key of this.DataSet)\r\n               
-    this.characterData.set(key, message[key]);\r\n            this.SetCharacterData();\r\n       
-    });\r\n    }\r\n    Attack(target) {\r\n        console.log(`${this.name} attacks
-    ${target.name}.`);\r\n        target.TakeDamage(10);\r\n    }\r\n    AttackMonster(coll)
-    {\r\n        console.log(\"Attack\");\r\n        const data = new ZEPETO_Multiplay_1.RoomData();\r\n       
-    data.Add(\"attacker\", this.GetComponent($typeof(TransformSyncHelper_1.default)).Id);\r\n       
-    data.Add(\"victim\", coll.GetComponent($typeof(TransformSyncHelper_1.default)).Id);\r\n       
-    data.Add(\"quantity\", this.attackPower);\r\n        this._room.Send(\"TakeDamage\",
-    data.GetObject());\r\n    }\r\n    GetAllPlayerData() {\r\n        this._room.Send(\"GetAllPlayerData\");\r\n   
-    }\r\n    SetDataStorage(key, value) {\r\n        const data = new ZEPETO_Multiplay_1.RoomData();\r\n       
-    data.Add(\"key\", key);\r\n        data.Add(\"value\", value);\r\n        this._room.Send(\"onSetStorage\",
-    data.GetObject());\r\n    }\r\n    SetCharacterData() {\r\n        this.maxHp
-    = this.characterData.get(DataEnum.MaxHp);\r\n        this.hp = this.maxHp;\r\n       
-    this.attackPower = this.characterData.get(DataEnum.AD);\r\n        this.skillPower
-    = 100;\r\n        this.SetEntity();\r\n    }\r\n    OnLocalCharacterLoaded()
-    {\r\n        this._attackBtn = UnityEngine_1.GameObject.Find(\"AttackBtn\").GetComponent($typeof(UnityEngine_UI_1.Button));\r\n       
-    this._attackBtn.onClick.AddListener(() => {\r\n            this.StartCoroutine(this.DoCharacterAttack());\r\n       
-    });\r\n    }\r\n    *DoCharacterAttack() {\r\n        if (!this._localSword)
-    {\r\n            const sword = this._localCharacter.GetComponentInChildren($typeof(Sword_1.default)).gameObject;\r\n           
-    this._localSword = sword.GetComponent($typeof(UnityEngine_1.Collider));\r\n       
-    }\r\n        if (!this._attackFlag) {\r\n            this._attackFlag = true;\r\n           
-    this._localCharacter.SetGesture(this.animationClip);\r\n            this._localSword.enabled
-    = true;\r\n            yield new UnityEngine_1.WaitForSeconds(this.animationClip.length);\r\n           
-    this._localSword.enabled = false;\r\n            this._attackFlag = false;\r\n       
-    }\r\n    }\r\n}\r\nexports.default = CombatController;\r\nvar DataEnum;\r\n(function
-    (DataEnum) {\r\n    DataEnum[\"MaxHp\"] = \"MaxHp\";\r\n    DataEnum[\"AD\"]
-    = \"AD\";\r\n    DataEnum[\"Level\"] = \"Level\";\r\n    DataEnum[\"Exp\"] =
-    \"Exp\";\r\n})(DataEnum = exports.DataEnum || (exports.DataEnum = {}));\r\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ29tYmF0Q29udHJvbGxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNvbWJhdENvbnRyb2xsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQ0EsNkVBQTJFO0FBQzNFLDZDQUEyRjtBQUMzRixtREFBc0M7QUFDdEMsMkNBQW9DO0FBQ3BDLDhDQUF1QztBQUN2Qyx1REFBZ0Q7QUFDaEQsd0hBQWlIO0FBQ2pILCtHQUF3RztBQUV4RyxNQUFxQixnQkFBaUIsU0FBUSxnQkFBTTtJQVdoRCxZQUFZLFNBQWlCO1FBQ3pCLEtBQUssQ0FBQyxLQUFLLENBQUMsQ0FBQztRQVhWLGtCQUFhLEdBQXlCLElBQUksR0FBRyxFQUFrQixDQUFDO1FBQ3RELFlBQU8sR0FBYSxDQUFDLFFBQVEsQ0FBQyxLQUFLLEVBQUUsUUFBUSxDQUFDLEVBQUUsRUFBRSxRQUFRLENBQUMsS0FBSyxFQUFFLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQztRQUt6RixnQkFBVyxHQUFhLEtBQUssQ0FBQztJQU10QyxDQUFDO0lBRU0sS0FBSztRQUNSLEtBQUssQ0FBQyxLQUFLLEVBQUUsQ0FBQztRQUNkLElBQUksQ0FBQyxzQkFBc0IsRUFBRSxDQUFDO1FBQzlCLElBQUksQ0FBQyxlQUFlLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7UUFDakYsSUFBSSxDQUFDLGFBQWEsR0FBRyx1QkFBUyxDQUFDLElBQUksQ0FBQyxRQUFRLENBQWtCLENBQUM7UUFFL0QsSUFBSSxDQUFDLEtBQUssR0FBRywwQkFBZ0IsQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDO1FBRTVDLElBQUksQ0FBQyxnQkFBZ0IsRUFBRSxDQUFDO1FBRXhCLElBQUksQ0FBQyxLQUFLLENBQUMsaUJBQWlCLENBQUMsMEJBQTBCLEVBQUUsQ0FBQyxPQUFPLEVBQUUsRUFBRTtZQUNqRSxPQUFPLENBQUMsR0FBRyxDQUFDLGFBQWEsQ0FBQyxDQUFDO1lBQzNC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","assetPath":"Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts","manifest":{"properties":[{"assembly":"UnityEngine.AnimationModule","name":"animationClip","type":"UnityEngine.AnimationClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"maxHp","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"hp","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"attackPower","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"skillPower","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"CombatController","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: cfae00d49ae10094f1e467027032d2c7
+  compiledResult: '{"source":"","assetPath":"Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts","manifest":{"properties":[],"name":"","description":"","hasAnimatorMove":false},"isCompiled":false}'
+  typescriptHash: fd80c50aa7806ae5d627e45ea7863480
   onlyWriteTrigger: 0

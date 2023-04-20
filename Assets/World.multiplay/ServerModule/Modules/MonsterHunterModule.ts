@@ -1,11 +1,9 @@
 import { SandboxPlayer } from "ZEPETO.Multiplay";
 import { IModule } from "../IModule";
 import {GameEntity} from "ZEPETO.Multiplay.Schema";
-import {DataStorage, loadDataStorage} from 'ZEPETO.Multiplay.DataStorage'
+import { loadDataStorage} from 'ZEPETO.Multiplay.DataStorage'
 
 export default class MonsterHunterModule extends IModule {
-    private readonly DataSet: string[] = ['MaxHp', 'AD', 'Level', 'Exp'];
-    
     async OnCreate() {
         /**Monster Sync**/
         this.server.onMessage(MESSAGE.SetEntity, (client, message) => {
@@ -39,10 +37,12 @@ export default class MonsterHunterModule extends IModule {
             Object.assign(entity.Hp, currentHp);
         });
 
+        
+        //Load Player DataStorage (no data : default value)
         this.server.onMessage(MESSAGE.GetAllPlayerData, async (client) => {
             let isNewMember : boolean = false;
             const defaultValues: [string, number][] = [
-                ['MaxHp', 100],
+                ['MaxHp', 200],
                 ['AD', 10],
                 ['Level', 1],
                 ['Exp', 0],
@@ -61,13 +61,9 @@ export default class MonsterHunterModule extends IModule {
                 if(isNewMember){
                     values = await storage.mget(defaultValues.map(([key]) => key));
                 }
-                client.send('onGetAllPlayerDataResult', values);
+                client.send('onGetAllPlayerDataResult', values );
             }
         });
-    }
-    
-    GetPlayerDataStorage(){
-        
     }
 
     async OnJoin(client: SandboxPlayer) {
@@ -88,12 +84,6 @@ export default class MonsterHunterModule extends IModule {
 }
 
 
-interface PlayerData {
-    MaxHp: number,
-    AD: number,
-    Level: number,
-    Exp: number,
-}
 enum MESSAGE {
     SetEntity = "SetEntity",
     TakeDamage = "TakeDamage",

@@ -1,5 +1,5 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import {Object, WaitUntil} from "UnityEngine";
+import {Object, WaitUntil, Animator} from "UnityEngine";
 import {RoomData} from "ZEPETO.Multiplay";
 import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
@@ -11,9 +11,12 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     @SerializeField() protected hp: number;
     @SerializeField() protected attackPower: number;
     @SerializeField() protected skillPower: number;
+    @SerializeField() protected animator: Animator;
+    
     protected isMonster: boolean;
     
     private _gameEntity :GameEntity;
+    private _isFirst:boolean = true;
     
     constructor(isMonster :boolean) {
         super();
@@ -22,6 +25,7 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
 
     public Start(){
         this.StartCoroutine(this.WaitRoom());
+        this.animator = this.GetComponentInChildren<Animator>();
     }
     
     private *WaitRoom(){
@@ -42,11 +46,17 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     }
 
     private OnChangeEntity(){
+        if(this._isFirst && this._gameEntity.Hp == 0) {
+            GameObject.Destroy(this.gameObject);
+            return;
+        }
+            
         this.hp = this._gameEntity.Hp;
         console.log("Change Entity"+this.hp);
         if(this.hp === 0){
             this.OnDie();
         }
+        this._isFirst = false; 
     }
     
     private SetHPbarUI(){
@@ -63,18 +73,13 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
 
     abstract Attack(target: Entity): void;
 
-    TakeDamage(quantity: number) {
-        this.hp -= quantity;
-        if (this.hp <= 0) {
-            console.log(`${this.name} has been defeated.`);
-            this.OnDie();
-        }
-    }
-
     protected OnDie(){
         console.log("die");
-        // TODO : Death anim 
         // reward
+        
+        // TODO : Death anim 
+        this.animator.Play("Die");
+        
         // state
     }
     

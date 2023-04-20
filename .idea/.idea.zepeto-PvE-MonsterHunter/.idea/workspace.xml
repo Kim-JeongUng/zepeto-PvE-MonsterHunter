@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97064d5-589c-4f57-8d69-27795ea72d07" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/Resources/Monster/Mini Legion Rock Golem PBR HP Polyart/Animations/FreeGolem.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/Resources/Monster/Mini Legion Rock Golem PBR HP Polyart/Animations/FreeGolem.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/DOTween/DOTWeenSyncHelper.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/DOTween/DOTWeenSyncHelper.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Transform/AnimatorSyncHelper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Transform/AnimatorSyncHelper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Transform/AnimatorSyncHelper.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Transform/AnimatorSyncHelper.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/WorldPlayerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/WorldPlayerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/zepeto-script-compiler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/zepeto-script-compiler/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +117,7 @@
       <workItem from="1681754544344" duration="781000" />
       <workItem from="1681808154806" duration="2816000" />
       <workItem from="1681881826315" duration="16170000" />
-      <workItem from="1681974515586" duration="3484000" />
+      <workItem from="1681974515586" duration="4331000" />
     </task>
     <servers />
   </component>

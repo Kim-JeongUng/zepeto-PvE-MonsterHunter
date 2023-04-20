@@ -7,11 +7,9 @@ import Sword from '../Equipment/Sword';
 import {Room, RoomData} from "ZEPETO.Multiplay";
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
 import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
+import {DataEnum} from '../Manager/DataManager';
 
 export default class CombatController extends Entity {
-    public characterData : Map<string, number> = new Map<string, number>();
-    private readonly DataSet: string[] = [DataEnum.MaxHp, DataEnum.AD, DataEnum.Level, DataEnum.Exp];
-
     @SerializeField() private animationClip : AnimationClip;
     private _localCharacter: ZepetoCharacter;
     private _attackBtn : Button;
@@ -30,15 +28,6 @@ export default class CombatController extends Entity {
         this.animationClip = Resources.Load("Slash1") as AnimationClip;
 
         this._room = MultiplayManager.instance.room;
-        
-        this.GetAllPlayerData();
-        
-        this._room.AddMessageHandler("onGetAllPlayerDataResult", (message) => {
-            console.log("Get Success");
-            for(let key of this.DataSet)
-                this.characterData.set(key, message[key]);
-            this.SetCharacterData();
-        });
     }
     Attack(target: Entity) {
         console.log(`${this.name} attacks ${target.name}.`);
@@ -55,23 +44,16 @@ export default class CombatController extends Entity {
         this._room.Send("TakeDamage", data.GetObject());
     }
     
-    private GetAllPlayerData(){
-        this._room.Send("GetAllPlayerData");
-    }
-    public SetDataStorage(key, value){
-        const data = new RoomData();
-        data.Add("key", key);
-        data.Add("value", value);
-        this._room.Send("onSetStorage",data.GetObject());
-    }
-    
-    private SetCharacterData(){
-        
-        this.maxHp = this.characterData.get(DataEnum.MaxHp);
+    public SetCharacterData(characterData: Map<string, number> ){
+        this.maxHp = characterData.get(DataEnum.MaxHp);
         this.hp = this.maxHp;
-        this.attackPower = this.characterData.get(DataEnum.AD);
+        this.attackPower = characterData.get(DataEnum.AD);
         this.skillPower = 100;
+        
+        //서버 동기화
         this.SetEntity();
+        
+        console.log(this.maxHp+"load!@");
     }
     
     private OnLocalCharacterLoaded(){
@@ -97,12 +79,4 @@ export default class CombatController extends Entity {
             this._attackFlag = false;
         }
     }
-    
-
-}
-export enum DataEnum{
-    MaxHp = "MaxHp",
-    AD = 'AD', 
-    Level = 'Level',
-    Exp ='Exp'
 }
