@@ -60,8 +60,6 @@ export default class AnimatorSyncHelper extends ZepetoScriptBehaviour {
     }
 
     private SendAnimator() {
-        console.log("send");
-
         this._stateInfo = this._animator?.GetCurrentAnimatorStateInfo(0);
         const clipNameHash = this._stateInfo.shortNameHash;
         const clipNormalizedTime = this._stateInfo.normalizedTime;

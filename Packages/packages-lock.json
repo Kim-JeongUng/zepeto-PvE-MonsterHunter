@@ -175,12 +175,12 @@
       "url": "https://upm.zepeto.run"
     },
     "zepeto.character.controller": {
-      "version": "1.6.0",
+      "version": "1.7.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.inputsystem": "1.0.2",
-        "zepeto.event.bus": "0.1.0"
+        "zepeto.event.bus": "0.2.0"
       },
       "url": "https://upm.zepeto.run"
     },
@@ -192,8 +192,8 @@
       "url": "https://upm.zepeto.run"
     },
     "zepeto.event.bus": {
-      "version": "0.1.0",
-      "depth": 1,
+      "version": "0.2.0",
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://upm.zepeto.run"
@@ -253,11 +253,10 @@
       "url": "https://upm.zepeto.run"
     },
     "zepeto.world": {
-      "version": "1.14.0",
+      "version": "1.15.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "zepeto.event.bus": "0.1.0",
         "zepeto.world.common": "1.0.1",
         "zepeto.world.shared": "1.8.0",
         "zepeto.script": "1.9.0",
@@ -265,7 +264,7 @@
         "zepeto.multiplay.script": "1.7.0",
         "zepeto.chat": "1.0.1",
         "zepeto.character": "3.1.13",
-        "zepeto.character.controller": "1.6.0",
+        "zepeto.character.controller": "1.7.0",
         "zepeto.script.unityengine.typings": "1.0.6",
         "zepeto.iwp": "1.2.1",
         "zepeto.script.leaderboard": "1.1.8",
