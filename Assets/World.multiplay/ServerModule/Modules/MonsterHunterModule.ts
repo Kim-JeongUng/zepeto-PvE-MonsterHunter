@@ -3,6 +3,8 @@ import { IModule } from "../IModule";
 import {GameEntity} from "ZEPETO.Multiplay.Schema";
 import { loadDataStorage} from 'ZEPETO.Multiplay.DataStorage'
 
+const MaxExp = 30;
+
 export default class MonsterHunterModule extends IModule {
     async OnCreate() {
         /**Monster Sync**/
@@ -37,6 +39,33 @@ export default class MonsterHunterModule extends IModule {
             Object.assign(entity.Hp, currentHp);
         });
 
+        this.server.onMessage(MESSAGE.GainExp, async (client, quantity: number) => {
+
+            const storage = await loadDataStorage(client.userId);
+
+            if (storage !== null) {
+                let expValues = await storage.get("Exp") as number;
+                let tempExp = expValues + quantity;
+                const isLevelChanged = false;
+                let levelChangeValue = 0;
+                
+                while(tempExp >= MaxExp){
+                    tempExp -= MaxExp;
+                    levelChangeValue++;
+                    isLevelChanged = true;
+                }
+                const expResult = await storage.set("Exp", tempExp);
+                console.log("result");
+                console.log(expResult);
+                if(isLevelChanged){
+                    let levelValues = await storage.get("Level") as number;
+                    const levelResult = await storage.set("Level", levelValues + levelChangeValue);
+
+                    console.log("result");
+                    console.log(expResult);
+                }
+            }
+        });
         
         //Load Player DataStorage (no data : default value)
         this.server.onMessage(MESSAGE.GetAllPlayerData, async (client) => {
@@ -80,7 +109,14 @@ export default class MonsterHunterModule extends IModule {
     DeathEvent(attacker:string, victim:string){
         this.server.broadcast("DeathEvent"+victim,attacker);
         this.server.broadcast("KillEvent"+attacker,victim);
+        const monsterReward: MonsterReward = {
+            Currency : 10,
+            Exp : 10
+        }
+        this.server.broadcast("OnReward"+attacker,monsterReward);
+        console.log("log 전송");
     }
+    
 
 }
 
@@ -90,6 +126,11 @@ interface IPlayerData {
     Level: number;
     Exp: number;
     [key: string]: number;
+}
+
+interface MonsterReward{
+    Currency: number;
+    Exp: number;
 }
 
 enum MESSAGE {

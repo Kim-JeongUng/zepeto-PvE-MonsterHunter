@@ -42,6 +42,11 @@ export default class DataManager extends ZepetoScriptBehaviour {
                     this.characterData.set(key, message[key]);
                 this._localCharacter.GetComponent<CombatController>().SetCharacterData(this.characterData);
             });
+            
+            this._room.AddMessageHandler("onSetStorageResult", (message) => {
+                console.log("set Success");
+                console.log(message);
+            });
         });
     }
 

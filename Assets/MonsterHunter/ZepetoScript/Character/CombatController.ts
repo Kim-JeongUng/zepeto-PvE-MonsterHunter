@@ -28,6 +28,11 @@ export default class CombatController extends Entity {
         this.animationClip = Resources.Load("Slash1") as AnimationClip;
 
         this._room = MultiplayManager.instance.room;
+        const Id = this._room.SessionId;
+        this._room.AddMessageHandler("OnReward"+Id, (reward :MonsterReward) => {
+            this.GetExpReward(reward.Exp);
+            this.GetCurrencyReward(reward.Currency);
+        });
     }
     
     Attack(target: Entity) {
@@ -57,6 +62,18 @@ export default class CombatController extends Entity {
         console.log(this.maxHp+"load!@");
     }
     
+    private GetExpReward(quantity:number){
+        this._room.Send("GainExp", quantity);
+    }
+
+    private GetCurrencyReward(quantity:number){
+        const data = new RoomData();
+        data.Add("currencyId", "energy");
+        data.Add("quantity", quantity);
+
+        this._room.Send("onCredit", data.GetObject());
+    }
+    
     private OnLocalCharacterLoaded(){
         
         this._attackBtn = GameObject.Find("AttackBtn").GetComponent<Button>() as Button;
@@ -80,4 +97,9 @@ export default class CombatController extends Entity {
             this._attackFlag = false;
         }
     }
+}
+
+interface MonsterReward{
+    Currency: number;
+    Exp: number;
 }

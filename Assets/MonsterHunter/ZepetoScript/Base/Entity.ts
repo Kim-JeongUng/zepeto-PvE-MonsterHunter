@@ -1,5 +1,5 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import {Object, WaitUntil, Animator, GameObject} from "UnityEngine";
+import {Object, WaitUntil, WaitForSeconds, Animator, GameObject} from "UnityEngine";
 import {RoomData} from "ZEPETO.Multiplay";
 import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
@@ -46,6 +46,7 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     }
 
     private OnChangeEntity(){
+        //이미 죽어 있는 경우
         if(this._isFirst && this._gameEntity.Hp == 0) {
             GameObject.Destroy(this.gameObject);
             return;
@@ -53,8 +54,10 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
             
         this.hp = this._gameEntity.Hp;
         console.log("Change Entity"+this.hp);
-        if(this.hp === 0){
-            this.OnDie();
+        
+        const isOwner = this.GetComponent<TransformSyncHelper>().isOwner;
+        if(isOwner && this.hp === 0){
+            this.StartCoroutine(this.OnDie());
         }
         this._isFirst = false; 
     }
@@ -73,15 +76,19 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
 
     abstract Attack(target: Entity): void;
 
-    protected OnDie(){
+    protected * OnDie(){
         console.log("die");
         // reward
         
-        // TODO : Death anim 
+        
+        // Death anim 
         this.animator.Play("Die");
         
-        // state
+        // Destroy Object
+        yield new WaitForSeconds(2);
+        MultiplayManager.instance.Destroy(this.gameObject);
     }
+    
     
     GainHp(quantity: number) {
         this.hp = this.hp + quantity > this.maxHp ?  this.hp + quantity : this.maxHp;
