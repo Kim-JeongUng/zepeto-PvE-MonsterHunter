@@ -20,8 +20,8 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    CombatController_1 = require(\"../Character/CombatController\");\r\nconst TransformSyncHelper_1
-    = require(\"../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper\");\r\nclass
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst CombatController_1 = require(\"../Character/CombatController\");\r\nconst
+    TransformSyncHelper_1 = require(\"../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper\");\r\nclass
     Sword extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n       
     super(...arguments);\r\n        this._isLocal = false;\r\n    }\r\n    Start()
     {\r\n        this._isLocal = this.GetComponent($typeof(TransformSyncHelper_1.default)).isOwner;\r\n   
@@ -29,6 +29,6 @@ ScriptedImporter:
     {\r\n        if (!this._isLocal)\r\n            return;\r\n        this._combatController
     ?? (this._combatController = this.GetComponentInParent($typeof(CombatController_1.default)));\r\n       
     this._combatController.AttackMonster(coll);\r\n    }\r\n}\r\nexports.default
-    = Sword;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3dvcmQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTd29yZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUlyRCxvRUFBNkQ7QUFDN0Qsd0hBQWlIO0FBRWpILE1BQXFCLEtBQU0sU0FBUSxxQ0FBcUI7SUFBeEQ7O1FBR1ksYUFBUSxHQUFhLEtBQUssQ0FBQztJQWF2QyxDQUFDO0lBWkcsS0FBSztRQUNELElBQUksQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLFlBQVksU0FBQyw2QkFBbUIsR0FBSSxPQUFPLENBQUM7SUFDckUsQ0FBQztJQUVELHVDQUF1QztJQUMvQixjQUFjLENBQUMsSUFBYztRQUNqQyxJQUFHLENBQUMsSUFBSSxDQUFDLFFBQVE7WUFDYixPQUFPO1FBRVgsSUFBSSxDQUFDLGlCQUFpQixLQUF0QixJQUFJLENBQUMsaUJBQWlCLEdBQUssSUFBSSxDQUFDLG9CQUFvQixTQUFDLDBCQUFnQixJQUFJO1FBQ3pFLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxhQUFhLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDL0MsQ0FBQztDQUNKO0FBaEJELHdCQWdCQyJ9","assetPath":"Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts","manifest":{"properties":[],"name":"Sword","description":"","hasAnimatorMove":false},"isCompiled":true}'
+    = Sword;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3dvcmQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTd29yZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCw2Q0FBcUM7QUFHckMsb0VBQTZEO0FBQzdELHdIQUFpSDtBQUVqSCxNQUFxQixLQUFNLFNBQVEscUNBQXFCO0lBQXhEOztRQUdZLGFBQVEsR0FBYSxLQUFLLENBQUM7SUFhdkMsQ0FBQztJQVpHLEtBQUs7UUFDRCxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxZQUFZLFNBQUMsNkJBQW1CLEdBQUksT0FBTyxDQUFDO0lBQ3JFLENBQUM7SUFFRCx1Q0FBdUM7SUFDL0IsY0FBYyxDQUFDLElBQWM7UUFDakMsSUFBRyxDQUFDLElBQUksQ0FBQyxRQUFRO1lBQ2IsT0FBTztRQUVYLElBQUksQ0FBQyxpQkFBaUIsS0FBdEIsSUFBSSxDQUFDLGlCQUFpQixHQUFLLElBQUksQ0FBQyxvQkFBb0IsU0FBQywwQkFBZ0IsSUFBSTtRQUN6RSxJQUFJLENBQUMsaUJBQWlCLENBQUMsYUFBYSxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQy9DLENBQUM7Q0FDSjtBQWhCRCx3QkFnQkMifQ==","assetPath":"Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts","manifest":{"properties":[],"name":"Sword","description":"","hasAnimatorMove":false},"isCompiled":true}'
   typescriptHash: 91f315614032d3e5ef8de8ecda375369
   onlyWriteTrigger: 0

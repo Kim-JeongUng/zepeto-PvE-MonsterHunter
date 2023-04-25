@@ -29,9 +29,10 @@ export default class CombatController extends Entity {
 
         this._room = MultiplayManager.instance.room;
     }
+    
     Attack(target: Entity) {
-        console.log(`${this.name} attacks ${target.name}.`);
-        target.TakeDamage(10);
+    //     console.log(`${this.name} attacks ${target.name}.`);
+    //     target.TakeDamage(10);
     }
     
     public AttackMonster(coll:Collider){

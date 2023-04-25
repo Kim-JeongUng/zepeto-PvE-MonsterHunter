@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97064d5-589c-4f57-8d69-27795ea72d07" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/Resources/Monster/Mini Legion Rock Golem PBR HP Polyart/Animations/FreeGolem.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/Resources/Monster/Mini Legion Rock Golem PBR HP Polyart/Animations/FreeGolem.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/Demo.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/DOTween/DOTWeenSyncHelper.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/DOTween/DOTWeenSyncHelper.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/ProductModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/ProductModule.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +121,8 @@
       <workItem from="1681754544344" duration="781000" />
       <workItem from="1681808154806" duration="2816000" />
       <workItem from="1681881826315" duration="16170000" />
-      <workItem from="1681974515586" duration="4331000" />
+      <workItem from="1681974515586" duration="8031000" />
+      <workItem from="1682405437180" duration="2556000" />
     </task>
     <servers />
   </component>

@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/MonsterHunter/MonsterHunter.unity
-    guid: 2b07d1ee04d7a48d9a6e17fc6b1e452d
+    path: Assets/MonsterHunter/Scene/Demo.unity
+    guid: f75e33d5619c848d0b77ec0d6692288d
   m_configObjects: {}

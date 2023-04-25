@@ -50,7 +50,8 @@ export default class MonsterHunterModule extends IModule {
 
             const storage = await loadDataStorage(client.userId);
             if (storage !== null) {
-                let values = await storage.mget(defaultValues.map(([key]) => key));
+                let values = await storage.mget(defaultValues.map(([key]) => key)) as IPlayerData;
+
                 for (const [key, defaultValue] of defaultValues) {
                     const value = values[key];
                     if (value === undefined || value === null) {
@@ -59,7 +60,7 @@ export default class MonsterHunterModule extends IModule {
                     }
                 }
                 if(isNewMember){
-                    values = await storage.mget(defaultValues.map(([key]) => key));
+                    values = await storage.mget(defaultValues.map(([key]) => key)) as IPlayerData;
                 }
                 client.send('onGetAllPlayerDataResult', values );
             }
@@ -83,6 +84,13 @@ export default class MonsterHunterModule extends IModule {
 
 }
 
+interface IPlayerData {
+    MaxHp: number;
+    AD: number;
+    Level: number;
+    Exp: number;
+    [key: string]: number;
+}
 
 enum MESSAGE {
     SetEntity = "SetEntity",

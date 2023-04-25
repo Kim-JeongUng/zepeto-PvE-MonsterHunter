@@ -1,5 +1,5 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import {Object, WaitUntil, Animator} from "UnityEngine";
+import {Object, WaitUntil, Animator, GameObject} from "UnityEngine";
 import {RoomData} from "ZEPETO.Multiplay";
 import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';

@@ -93,10 +93,10 @@ export default class ProductModule extends IModule {
     async GetStorage(client: SandboxPlayer, key: string) {
         try {
             const dataStorage = await loadDataStorage(client.userId);
-            const result = await dataStorage.get(key) as number;
+            const result = await dataStorage.get(key) as string;
             const storageMessage: StorageMessage = {
                 key : key,
-                value : result ?? null
+                value : result ?? ""
             }
             client.send("onGetStorageResult", storageMessage);
         }
@@ -235,7 +235,7 @@ interface InventoryMessage {
 
 interface StorageMessage {
     key: string,
-    value?: number,
+    value?: string,
 }
 
 interface InventorySync {
