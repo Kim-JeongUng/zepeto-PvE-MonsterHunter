@@ -58,8 +58,6 @@ export default class CombatController extends Entity {
         
         //서버 동기화
         this.SetEntity();
-        
-        console.log(this.maxHp+"load!@");
     }
     
     private GetExpReward(quantity:number){

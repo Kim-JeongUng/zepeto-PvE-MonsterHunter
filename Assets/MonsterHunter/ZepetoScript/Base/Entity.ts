@@ -16,7 +16,6 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     protected isMonster: boolean;
     
     private _gameEntity :GameEntity;
-    private _isFirst:boolean = true;
     
     constructor(isMonster :boolean) {
         super();
@@ -39,6 +38,13 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
         }
         
         this._gameEntity = MultiplayManager.instance.room.State.GameEntities?.get_Item(objId);
+        
+        //이미 죽어 있는 경우
+        if(this._gameEntity.Hp == 0) {
+            GameObject.Destroy(this.gameObject);
+            return;
+        }
+        
         this.OnChangeEntity();
         this._gameEntity.add_OnChange(() => {
             this.OnChangeEntity();
@@ -46,20 +52,15 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     }
 
     private OnChangeEntity(){
-        //이미 죽어 있는 경우
-        if(this._isFirst && this._gameEntity.Hp == 0) {
-            GameObject.Destroy(this.gameObject);
-            return;
-        }
             
         this.hp = this._gameEntity.Hp;
         console.log("Change Entity"+this.hp);
+        this.SetHPbarUI();
         
         const isOwner = this.GetComponent<TransformSyncHelper>().isOwner;
         if(isOwner && this.hp === 0){
             this.StartCoroutine(this.OnDie());
         }
-        this._isFirst = false; 
     }
     
     private SetHPbarUI(){
@@ -79,7 +80,6 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     protected * OnDie(){
         console.log("die");
         // reward
-        
         
         // Death anim 
         this.animator.Play("Die");

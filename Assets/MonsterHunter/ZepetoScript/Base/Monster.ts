@@ -15,13 +15,9 @@ export default class Monster extends Entity implements IMonster {
     }
     
     Attack(target: Entity) {
-        console.log(`${this.name} attacks ${target.name}.`);
-        target.TakeDamage(10);
+        // console.log(`${this.name} attacks ${target.name}.`);
+        // target.TakeDamage(10);
     }
     
-    OnDie(){
-        super.OnDie();
-        
-    }
 
 }

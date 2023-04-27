@@ -24,7 +24,7 @@ export default class UIBalances extends ZepetoScriptBehaviour {
 
     private Start() {
         this.RefreshAllBalanceUI();
-        this.RefreshExpUI();
+        this.RefreshExpUI(this._myExp, this._myLevel);
         this._multiplay = Object.FindObjectOfType<ZepetoWorldMultiplay>();
 
         this._multiplay.RoomJoined += (room: Room) => {
@@ -63,20 +63,20 @@ export default class UIBalances extends ZepetoScriptBehaviour {
     }
     
     public IncreaseExp(quantity:number){
-        // TODO : 데이터스토리지 레벨, 경험치 구현
         this._myExp += quantity;
         if(this._myExp >= this._amountExp){
             this._myLevel++;
             this._myExp -= this._amountExp;
             this.LevelUpReward();
         }
-        this.RefreshExpUI();
+        this.RefreshExpUI(this._myExp, this._myLevel);
     }
     
-    private RefreshExpUI(){
-        this.possessionExpTxt.text = this._myExp.toString();
-        this.possessionLevelTxt.text = this._myLevel.toString();
-        this.expSlider.value = this._myExp / this._amountExp;
+    public RefreshExpUI(exp:number, level:number){
+        console.log(exp);
+        this.possessionExpTxt.text = exp.toString();
+        this.possessionLevelTxt.text = level.toString();
+        this.expSlider.value = exp / this._amountExp;
     }
     
     private LevelUpReward(){

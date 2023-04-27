@@ -22,7 +22,7 @@ export default class MonsterHunterModule extends IModule {
         this.server.onMessage(MESSAGE.TakeDamage, (client, message) => {
             const { attacker, victim, quantity } = message;
             let entity = this.server.state.GameEntities.get(victim.toString());
-            if(entity) {
+            if(entity && entity.Hp != 0) {
                 let currentHp = entity.Hp - quantity;
                 currentHp = currentHp < 0 ? 0 :currentHp;
                 if (currentHp == 0) {
@@ -55,44 +55,17 @@ export default class MonsterHunterModule extends IModule {
                     isLevelChanged = true;
                 }
                 const expResult = await storage.set("Exp", tempExp);
-                console.log("result");
-                console.log(expResult);
                 if(isLevelChanged){
                     let levelValues = await storage.get("Level") as number;
                     const levelResult = await storage.set("Level", levelValues + levelChangeValue);
-
-                    console.log("result");
-                    console.log(expResult);
                 }
+                await this.GetAllPlayerData(client);
             }
         });
         
         //Load Player DataStorage (no data : default value)
         this.server.onMessage(MESSAGE.GetAllPlayerData, async (client) => {
-            let isNewMember : boolean = false;
-            const defaultValues: [string, number][] = [
-                ['MaxHp', 200],
-                ['AD', 10],
-                ['Level', 1],
-                ['Exp', 0],
-            ];
-
-            const storage = await loadDataStorage(client.userId);
-            if (storage !== null) {
-                let values = await storage.mget(defaultValues.map(([key]) => key)) as IPlayerData;
-
-                for (const [key, defaultValue] of defaultValues) {
-                    const value = values[key];
-                    if (value === undefined || value === null) {
-                        await storage.set(key, defaultValue);
-                        isNewMember = true;
-                    }
-                }
-                if(isNewMember){
-                    values = await storage.mget(defaultValues.map(([key]) => key)) as IPlayerData;
-                }
-                client.send('onGetAllPlayerDataResult', values );
-            }
+            await this.GetAllPlayerData(client);
         });
     }
 
@@ -116,7 +89,32 @@ export default class MonsterHunterModule extends IModule {
         this.server.broadcast("OnReward"+attacker,monsterReward);
         console.log("log 전송");
     }
-    
+    async GetAllPlayerData(client : SandboxPlayer){
+        let isNewMember : boolean = false;
+        const defaultValues: [string, number][] = [
+            ['MaxHp', 200],
+            ['AD', 10],
+            ['Level', 1],
+            ['Exp', 0],
+        ];
+
+        const storage = await loadDataStorage(client.userId);
+        if (storage !== null) {
+            let values = await storage.mget(defaultValues.map(([key]) => key)) as IPlayerData;
+
+            for (const [key, defaultValue] of defaultValues) {
+                const value = values[key];
+                if (value === undefined || value === null) {
+                    await storage.set(key, defaultValue);
+                    isNewMember = true;
+                }
+            }
+            if(isNewMember){
+                values = await storage.mget(defaultValues.map(([key]) => key)) as IPlayerData;
+            }
+            client.send('onGetAllPlayerDataResult', values );
+        }
+    }
 
 }
 
@@ -137,5 +135,6 @@ enum MESSAGE {
     SetEntity = "SetEntity",
     TakeDamage = "TakeDamage",
     GainHp = "GainHp",
+    GainExp = "GainExp",
     GetAllPlayerData = "GetAllPlayerData"
 }
