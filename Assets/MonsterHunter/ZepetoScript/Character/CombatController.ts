@@ -7,6 +7,7 @@ import Sword from '../Equipment/Sword';
 import {Room, RoomData} from "ZEPETO.Multiplay";
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
 import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
+import LeaderBoardManager from '../../../Zepeto LeaderBoard Module/ZepetoScript/LeaderBoardManager';
 import {DataEnum} from '../Manager/DataManager';
 
 export default class CombatController extends Entity {
@@ -30,6 +31,7 @@ export default class CombatController extends Entity {
         this._room = MultiplayManager.instance.room;
         const Id = this._room.SessionId;
         this._room.AddMessageHandler("OnReward"+Id, (reward :MonsterReward) => {
+            LeaderBoardManager.instance.SendScore(1);
             this.GetExpReward(reward.Exp);
             this.GetCurrencyReward(reward.Currency);
         });
@@ -41,7 +43,6 @@ export default class CombatController extends Entity {
     }
     
     public AttackMonster(coll:Collider){
-        console.log("Attack");
         const data = new RoomData();
         data.Add("attacker", this.GetComponent<TransformSyncHelper>().Id);
         data.Add("victim", coll.GetComponent<TransformSyncHelper>().Id);

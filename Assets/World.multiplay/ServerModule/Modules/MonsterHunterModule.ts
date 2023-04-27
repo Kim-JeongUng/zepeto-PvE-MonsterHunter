@@ -10,13 +10,17 @@ export default class MonsterHunterModule extends IModule {
         /**Monster Sync**/
         this.server.onMessage(MESSAGE.SetEntity, (client, message) => {
             const { ObjectId, isMonster, MaxHp, Hp } = message;
-            const entity = new GameEntity();
-            entity.ObjectId = ObjectId;
-            entity.isMonster = isMonster;
-            entity.MaxHp = MaxHp;
-            entity.Hp = Hp ?? MaxHp;
-            console.log("set entity");
-            this.server.state.GameEntities.set(ObjectId.toString(), entity);
+
+            let entity = this.server.state.GameEntities.get(ObjectId);
+            if(entity === null || entity === undefined){
+                entity = new GameEntity();
+                entity.ObjectId = ObjectId;
+                entity.isMonster = isMonster;
+                entity.MaxHp = MaxHp;
+                entity.Hp = Hp ?? MaxHp;
+                console.log("set entity");
+                this.server.state.GameEntities.set(ObjectId.toString(), entity);
+            }
         });
 
         this.server.onMessage(MESSAGE.TakeDamage, (client, message) => {
@@ -46,7 +50,7 @@ export default class MonsterHunterModule extends IModule {
             if (storage !== null) {
                 let expValues = await storage.get("Exp") as number;
                 let tempExp = expValues + quantity;
-                const isLevelChanged = false;
+                let isLevelChanged = false;
                 let levelChangeValue = 0;
                 
                 while(tempExp >= MaxExp){
@@ -54,10 +58,10 @@ export default class MonsterHunterModule extends IModule {
                     levelChangeValue++;
                     isLevelChanged = true;
                 }
-                const expResult = await storage.set("Exp", tempExp);
+                await storage.set("Exp", tempExp);
                 if(isLevelChanged){
                     let levelValues = await storage.get("Level") as number;
-                    const levelResult = await storage.set("Level", levelValues + levelChangeValue);
+                    await storage.set("Level", levelValues + levelChangeValue);
                 }
                 await this.GetAllPlayerData(client);
             }
@@ -93,7 +97,7 @@ export default class MonsterHunterModule extends IModule {
         let isNewMember : boolean = false;
         const defaultValues: [string, number][] = [
             ['MaxHp', 200],
-            ['AD', 10],
+            ['AD', 20],
             ['Level', 1],
             ['Exp', 0],
         ];

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &53319150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7925915731778666543, guid: 3f386064faded4b9ebc2fb43d66a8f64, type: 3}
+  m_PrefabInstance: {fileID: 65014047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &65014047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -571,9 +576,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyRootMotion: 0
   script:
-    keys: []
-    unityValues: []
-    values: []
+    keys:
+    - UIBalanceObj
+    unityValues:
+    - {fileID: 53319150}
+    values:
+    - 
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 0638d99bfe7b6164ba9495acf095f38d, type: 3}
@@ -1455,7 +1463,7 @@ MonoBehaviour:
     - hp
     - attackPower
     - skillPower
-    - isMonster
+    - animator
     unityValues:
     - {fileID: 0}
     - {fileID: 0}
@@ -1471,7 +1479,7 @@ MonoBehaviour:
     - '{"type":"System.Single, mscorlib","value":"100"}'
     - '{"type":"System.Single, mscorlib","value":"10"}'
     - '{"type":"System.Single, mscorlib","value":"10"}'
-    - '{"type":"System.Boolean, mscorlib","value":"False"}'
+    - 
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: ee7459678532a48758492264b2d6f474, type: 3}

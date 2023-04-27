@@ -29,7 +29,7 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     
     private *WaitRoom(){
         yield new WaitUntil(()=>MultiplayManager.instance.room != null );
-
+        
         const objId = this.GetComponent<TransformSyncHelper>().Id;
         
         if(MultiplayManager.instance.room.State.GameEntities?.get_Item(objId) == null ) {
@@ -54,7 +54,7 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     private OnChangeEntity(){
             
         this.hp = this._gameEntity.Hp;
-        console.log("Change Entity"+this.hp);
+        console.log("Change Entity "+this.hp);
         this.SetHPbarUI();
         
         const isOwner = this.GetComponent<TransformSyncHelper>().isOwner;
@@ -64,7 +64,7 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     }
     
     private SetHPbarUI(){
-        
+        //TODO : HP UI 구현
     }
     
     protected SetEntity(objId?:string){
@@ -85,7 +85,7 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
         this.animator.Play("Die");
         
         // Destroy Object
-        yield new WaitForSeconds(2);
+        yield new WaitForSeconds(4);
         MultiplayManager.instance.Destroy(this.gameObject);
     }
     
