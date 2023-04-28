@@ -25,7 +25,8 @@ export default class UICurrencyShop extends ZepetoScriptBehaviour {
 
         yield new WaitUntil(()=>request.keepWaiting == false);
         if(request.responseData.isSuccess) {
-            this.possessionCurrencyTxt.text = request.responseData.currency.quantity.toString();
+            const quantity:bigint = request.responseData?.currency?.quantity ?? 0n;
+            this.possessionCurrencyTxt.text = quantity.toString();
         }
     }
 
@@ -46,5 +47,4 @@ export default class UICurrencyShop extends ZepetoScriptBehaviour {
             }
         }
     }
-
 }

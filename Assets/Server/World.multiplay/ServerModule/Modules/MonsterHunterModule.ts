@@ -1,6 +1,6 @@
 import { SandboxPlayer } from "ZEPETO.Multiplay";
 import { IModule } from "../IModule";
-import {GameEntity} from "ZEPETO.Multiplay.Schema";
+import {Monster} from "ZEPETO.Multiplay.Schema";
 import { loadDataStorage} from 'ZEPETO.Multiplay.DataStorage'
 
 const MaxExp = 30;
@@ -31,23 +31,22 @@ export default class MonsterHunterModule extends IModule {
 
         //TODO : 서버에서 Set해서 클라로 주는걸로 변경
         this.server.onMessage(MESSAGE.SetEntity, (client, message) => {
-            const { ObjectId, isMonster, MaxHp, Hp } = message;
+            const { ObjectId, MaxHp, Hp } = message;
 
-            let entity = this.server.state.GameEntities.get(ObjectId);
+            let entity = this.server.state.Monsters.get(ObjectId);
             if(entity === null || entity === undefined){
-                entity = new GameEntity();
+                entity = new Monster();
                 entity.ObjectId = ObjectId;
-                entity.isMonster = isMonster;
                 entity.MaxHp = MaxHp;
                 entity.Hp = Hp ?? MaxHp;
                 console.log("set entity");
-                this.server.state.GameEntities.set(ObjectId.toString(), entity);
+                this.server.state.Monsters.set(ObjectId.toString(), entity);
             }
         });
 
         this.server.onMessage(MESSAGE.TakeDamage, (client, message) => {
             const { attacker, victim, quantity } = message;
-            let entity = this.server.state.GameEntities.get(victim.toString());
+            let entity = this.server.state.Monsters.get(victim.toString());
             if(entity && entity.Hp != 0) {
                 let currentHp = entity.Hp - quantity;
                 currentHp = currentHp < 0 ? 0 :currentHp;
@@ -60,7 +59,7 @@ export default class MonsterHunterModule extends IModule {
 
         this.server.onMessage(MESSAGE.GainHp, (client, message) => {
             const { ObjectId, quantity } = message;
-            let entity = this.server.state.GameEntities.get(ObjectId.toString());
+            let entity = this.server.state.Monsters.get(ObjectId.toString());
             let currentHp = entity.Hp + quantity > entity.MaxHp ? entity.MaxHp : entity.Hp + quantity;
             Object.assign(entity.Hp, currentHp);
         });
@@ -105,29 +104,30 @@ export default class MonsterHunterModule extends IModule {
 
     }
     CreateBaseMonster(){
-        const monster = this.monsterData['Golem'];
 
-        this.server.broadcast(MESSAGE.SpawnMonster, monster);
-        entity = new GameEntity();
-        entity.ObjectId = this.serverObjId++;
+        console.log(Object.keys(this.monsterData).length);
+        
+        const monster = this.monsterData['Golem'];
+    
+        if(monster === undefined){
+            console.log("undefine");
+            return;
+        }
+        const ObjectId = (this.serverObjId++).toString();
+        let entity = new Monster();
+        entity.ObjectId = ObjectId;
         entity.Name = monster.Name;
-        entity.isMonster = true;
         entity.MaxHp = monster.MaxHp;
         entity.Hp = monster.MaxHp;
-
-        this.server.state.GameEntities.set(ObjectId.toString(), entity);
+        this.server.state.Monsters.set(ObjectId, entity);
     }
 
     DeathEvent(attacker:string, victim:string){
-        const entity = this.server.state.GameEntities.get(victim);
+        const entity = this.server.state.Monsters.get(victim);
         if(entity !== null){
             const monster = this.monsterData[entity.name];
 
-            const monsterReward: MonsterReward = {
-                Currency : monster.RewardCurrency,
-                Exp : monster.RewardExp
-            }
-            this.server.broadcast("OnReward"+attacker,monsterReward);
+            this.server.broadcast("OnReward"+attacker,monster);
         }
     }
 

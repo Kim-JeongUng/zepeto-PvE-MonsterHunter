@@ -30,10 +30,10 @@ export default class CombatController extends Entity {
 
         this._room = MultiplayManager.instance.room;
         const Id = this._room.SessionId;
-        this._room.AddMessageHandler("OnReward"+Id, (reward :MonsterReward) => {
+        this._room.AddMessageHandler("OnReward"+Id, (reward:IMonsterData) => {
             LeaderBoardManager.instance.SendScore(1);
-            this.GetExpReward(reward.Exp);
-            this.GetCurrencyReward(reward.Currency);
+            this.GetExpReward(reward.RewardExp);
+            this.GetCurrencyReward(reward.RewardCurrency);
         });
     }
     
@@ -41,6 +41,7 @@ export default class CombatController extends Entity {
     //     console.log(`${this.name} attacks ${target.name}.`);
     //     target.TakeDamage(10);
     }
+    
     
     public AttackMonster(coll:Collider){
         const data = new RoomData();
@@ -98,7 +99,11 @@ export default class CombatController extends Entity {
     }
 }
 
-interface MonsterReward{
-    Currency: number;
-    Exp: number;
+interface IMonsterData {
+    Name : string;
+    MaxHp : number;
+    Power : number;
+    //reward
+    RewardCurrency: number;
+    RewardExp: number;
 }

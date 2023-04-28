@@ -11,7 +11,7 @@
 			}
 		],
 		"types": [
-			"./Assets/World.multiplay/SchemaTypes",
+			"./Assets/Server/World.multiplay/SchemaTypes",
 			"./Library/PackageCache/zepeto.product@1.1.0-preview/Runtime/Script/Currency",
 			"./Library/PackageCache/zepeto.product@1.1.0-preview/Runtime/Script/Inventory",
 			"./Library/PackageCache/zepeto.product@1.1.0-preview/Runtime/Script/Product",
