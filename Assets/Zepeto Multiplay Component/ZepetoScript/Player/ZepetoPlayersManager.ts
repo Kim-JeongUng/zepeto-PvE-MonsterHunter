@@ -70,7 +70,8 @@ export default class ZepetoPlayersManager extends ZepetoScriptBehaviour {
                     this._room.OnStateChange += this.OnStateChange;
                 }
                 ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId: string) => {
-                    this.AddPlayerSync(sessionId);
+                    if(this._currentPlayers.has(sessionId))
+                        this.AddPlayerSync(sessionId);
                 });
                 if(this.UseZepetoGestureAPI) {
                     this.ContentRequest();

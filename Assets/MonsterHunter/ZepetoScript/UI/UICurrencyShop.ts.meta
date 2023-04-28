@@ -1,0 +1,44 @@
+fileFormatVersion: 2
+guid: 2b6ca9c88351fc04fb500b34c8124e6d
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Currency_1 = require(\"ZEPETO.Currency\");\r\nconst
+    ZEPETO_Product_1 = require(\"ZEPETO.Product\");\r\nconst ITM_ShopProduct_1 =
+    require(\"../../../Zepeto Product Module/ZepetoScript/UI/ITM_ShopProduct\");\r\nclass
+    UICurrencyShop extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start()
+    {\r\n        this.StartCoroutine(this.RefreshZemUI());\r\n        this.StartCoroutine(this.RefreshProducts());\r\n       
+    ZEPETO_Product_1.ProductService.OnPurchaseCompleted.AddListener((productRecord,
+    response) => {\r\n            this.StartCoroutine(this.RefreshZemUI());\r\n       
+    });\r\n    }\r\n    *RefreshZemUI() {\r\n        const request = ZEPETO_Currency_1.CurrencyService.GetUserCurrencyBalanceAsync(\"energy\");\r\n       
+    yield new UnityEngine_1.WaitUntil(() => request.keepWaiting == false);\r\n       
+    if (request.responseData.isSuccess) {\r\n            this.possessionCurrencyTxt.text
+    = request.responseData.currency.quantity.toString();\r\n        }\r\n    }\r\n   
+    *RefreshProducts() {\r\n        const request = ZEPETO_Product_1.ProductService.GetProductsAsync();\r\n       
+    yield new UnityEngine_1.WaitUntil(() => request.keepWaiting == false);\r\n       
+    if (!request.responseData || !request.responseData.isSuccess) {\r\n           
+    console.warn(\"Refresh Products Failed\");\r\n            return;\r\n       
+    }\r\n        let currencyPackageIndex = 0;\r\n        for (const product of request.responseData.products
+    || []) {\r\n            if (product.ProductType === ZEPETO_Product_1.ProductType.Item
+    && currencyPackageIndex < this.shopProducts.length) {\r\n                this.shopProducts[currencyPackageIndex].GetComponent($typeof(ITM_ShopProduct_1.default)).RefreshProduct(product);\r\n               
+    currencyPackageIndex++;\r\n            }\r\n        }\r\n    }\r\n}\r\nexports.default
+    = UICurrencyShop;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlDdXJyZW5jeVNob3AuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJVSUN1cnJlbmN5U2hvcC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFtRDtBQUVuRCw2Q0FBaUQ7QUFDakQscURBQWdEO0FBQ2hELG1EQUFxRztBQUNyRyxvR0FBNEY7QUFFNUYsTUFBcUIsY0FBZSxTQUFRLHFDQUFxQjtJQU1yRCxLQUFLO1FBQ1QsSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsWUFBWSxFQUFFLENBQUMsQ0FBQztRQUN6QyxJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxlQUFlLEVBQUUsQ0FBQyxDQUFDO1FBRTVDLCtCQUFjLENBQUMsbUJBQW1CLENBQUMsV0FBVyxDQUFDLENBQUMsYUFBYSxFQUFFLFFBQVEsRUFBQyxFQUFFO1lBQ3RFLElBQUksQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLFlBQVksRUFBRSxDQUFDLENBQUM7UUFDN0MsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRU8sQ0FBRSxZQUFZO1FBQ2xCLE1BQU0sT0FBTyxHQUFHLGlDQUFlLENBQUMsMkJBQTJCLENBQUMsUUFBUSxDQUFDLENBQUM7UUFFdEUsTUFBTSxJQUFJLHVCQUFTLENBQUMsR0FBRSxFQUFFLENBQUEsT0FBTyxDQUFDLFdBQVcsSUFBSSxLQUFLLENBQUMsQ0FBQztRQUN0RCxJQUFHLE9BQU8sQ0FBQyxZQUFZLENBQUMsU0FBUyxFQUFFO1lBQy9CLElBQUksQ0FBQyxxQkFBcUIsQ0FBQyxJQUFJLEdBQUcsT0FBTyxDQUFDLFlBQVksQ0FBQyxRQUFRLENBQUMsUUFBUSxDQUFDLFFBQVEsRUFBRSxDQUFDO1NBQ3ZGO0lBQ0wsQ0FBQztJQUVPLENBQUUsZUFBZTtRQUNyQixNQUFNLE9BQU8sR0FBRywrQkFBYyxDQUFDLGdCQUFnQixFQUFFLENBQUM7UUFDbEQsTUFBTSxJQUFJLHVCQUFTLENBQUMsR0FBRSxFQUFFLENBQUEsT0FBTyxDQUFDLFdBQVcsSUFBSSxLQUFLLENBQUMsQ0FBQztRQUV0RCxJQUFJLENBQUMsT0FBTyxDQUFDLFlBQVksSUFBSSxDQUFDLE9BQU8sQ0FBQyxZQUFZLENBQUMsU0FBUyxFQUFFO1lBQzFELE9BQU8sQ0FBQyxJQUFJLENBQUMseUJBQXlCLENBQUMsQ0FBQztZQUN4QyxPQUFPO1NBQ1Y7UUFFRCxJQUFJLG9CQUFvQixHQUFHLENBQUMsQ0FBQztRQUM3QixLQUFLLE1BQU0sT0FBTyxJQUFJLE9BQU8sQ0FBQyxZQUFZLENBQUMsUUFBUSxJQUFJLEVBQUUsRUFBRTtZQUN2RCxJQUFJLE9BQU8sQ0FBQyxXQUFXLEtBQUssNEJBQVcsQ0FBQyxJQUFJLElBQUksb0JBQW9CLEdBQUcsSUFBSSxDQUFDLFlBQVksQ0FBQyxNQUFNLEVBQUU7Z0JBQzdGLElBQUksQ0FBQyxZQUFZLENBQUMsb0JBQW9CLENBQUMsQ0FBQyxZQUFZLFNBQUMseUJBQWUsR0FBSSxjQUFjLENBQUMsT0FBTyxDQUFDLENBQUM7Z0JBQ2hHLG9CQUFvQixFQUFFLENBQUM7YUFDMUI7U0FDSjtJQUNMLENBQUM7Q0FFSjtBQTFDRCxpQ0EwQ0MifQ==","assetPath":"Assets/MonsterHunter/ZepetoScript/UI/UICurrencyShop.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"possessionCurrencyTxt","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"shopProducts","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"UICurrencyShop","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 957695eefba8adb7f7674afcaf51e4fa
+  onlyWriteTrigger: 0
