@@ -53,6 +53,7 @@ declare module "ZEPETO.Multiplay.Schema" {
 	}
 	class GameEntity extends Schema {
 		ObjectId: string;
+		Name: string;
 		isMonster: boolean;
 		MaxHp: number;
 		Hp: number;

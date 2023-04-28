@@ -9,10 +9,32 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Player/PlayerSync.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Player/PlayerSync.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Player/ZepetoPlayersManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Player/ZepetoPlayersManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Player/ZepetoPlayersManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Player/ZepetoPlayersManager.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/.vscode/launch.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/SchemaTypes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/SchemaTypes/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/SchemaTypes/index.d.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/IModule.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/IModule.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/ProductModule.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/ProductModule.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/SyncComponentModule.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/ServerModule/Modules/SyncComponentModule.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/index.d.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/index.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/package.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/schemas.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/schemas.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/tsconfig.json.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +141,8 @@
       <workItem from="1681974515586" duration="8031000" />
       <workItem from="1682405437180" duration="5703000" />
       <workItem from="1682572293978" duration="425000" />
-      <workItem from="1682662468004" duration="2097000" />
+      <workItem from="1682662468004" duration="2482000" />
+      <workItem from="1682705860755" duration="2121000" />
     </task>
     <servers />
   </component>

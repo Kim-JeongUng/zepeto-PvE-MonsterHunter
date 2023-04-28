@@ -35,7 +35,7 @@ export default class MonsterHunterModule extends IModule {
                 entity.Hp =  currentHp;
             }
         });
-        
+
         this.server.onMessage(MESSAGE.GainHp, (client, message) => {
             const { ObjectId, quantity } = message;
             let entity = this.server.state.GameEntities.get(ObjectId.toString());
@@ -52,7 +52,7 @@ export default class MonsterHunterModule extends IModule {
                 let tempExp = expValues + quantity;
                 let isLevelChanged = false;
                 let levelChangeValue = 0;
-                
+
                 while(tempExp >= MaxExp){
                     tempExp -= MaxExp;
                     levelChangeValue++;
@@ -66,7 +66,7 @@ export default class MonsterHunterModule extends IModule {
                 await this.GetAllPlayerData(client);
             }
         });
-        
+
         //Load Player DataStorage (no data : default value)
         this.server.onMessage(MESSAGE.GetAllPlayerData, async (client) => {
             await this.GetAllPlayerData(client);
@@ -80,7 +80,7 @@ export default class MonsterHunterModule extends IModule {
     }
 
     OnTick(deltaTime: number) {
-        
+
     }
 
     DeathEvent(attacker:string, victim:string){
