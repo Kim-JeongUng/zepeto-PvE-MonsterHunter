@@ -79,9 +79,6 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
         // Death anim 
         this.animator.Play("Die");
         
-        // Destroy Object
-        yield new WaitForSeconds(4);
-        MultiplayManager.instance.Destroy(this.gameObject);
     }
     
     

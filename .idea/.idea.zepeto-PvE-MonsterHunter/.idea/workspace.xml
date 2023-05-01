@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97064d5-589c-4f57-8d69-27795ea72d07" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/Entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Manager/MonsterSpawnManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Manager/MonsterSpawnManager.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Manager/MonsterSpawnManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Manager/MonsterSpawnManager.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Server/World.multiplay/SchemaTypes/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Server/World.multiplay/SchemaTypes/index.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Server/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Server/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Server/World.multiplay/schemas.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Server/World.multiplay/schemas.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +124,7 @@
       <workItem from="1682572293978" duration="425000" />
       <workItem from="1682662468004" duration="2482000" />
       <workItem from="1682705860755" duration="5581000" />
-      <workItem from="1682946757860" duration="3682000" />
+      <workItem from="1682946757860" duration="11943000" />
     </task>
     <servers />
   </component>

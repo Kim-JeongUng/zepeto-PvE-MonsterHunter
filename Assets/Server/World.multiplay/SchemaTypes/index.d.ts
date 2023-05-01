@@ -15,6 +15,9 @@ declare module "ZEPETO.Multiplay.Schema" {
 		playerAdditionalValue: PlayerAdditionalValue;
 		animationParam: ZepetoAnimationParam;
 		gestureName: string;
+		MaxHp: number;
+		Hp: number;
+		AD: number;
 	}
 	class sVector3 extends Schema {
 		x: number;
@@ -55,7 +58,6 @@ declare module "ZEPETO.Multiplay.Schema" {
 		ObjectId: string;
 		SpawnPoint: number;
 		Name: string;
-		MaxHp: number;
 		Hp: number;
 	}
 }

@@ -1,9 +1,9 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import {Monster, State} from "ZEPETO.Multiplay.Schema";
-import {GameObject, Object, Resources, Vector3, Quaternion} from "UnityEngine";
+import {GameObject, Object, Resources, Vector3, Quaternion, WaitForSeconds} from "UnityEngine";
 import {ZepetoWorldMultiplay} from "ZEPETO.World";
 import {Room} from "ZEPETO.Multiplay";
-
+import TransformSyncHelper from "../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper";
 export default class MonsterSpawnManager extends ZepetoScriptBehaviour {
     @SerializeField() private spawnPoints:Vector3[] = []; 
     private _multiplay: ZepetoWorldMultiplay;
@@ -33,14 +33,14 @@ export default class MonsterSpawnManager extends ZepetoScriptBehaviour {
 
         join.forEach((monster: Monster, ObjectId: string) => this.OnCreateMonster(ObjectId, monster));
 
-        leave.forEach((monster: Monster, ObjectId: string) => this.OnDeleteMonster(ObjectId, monster));
+        leave.forEach((monster: Monster, ObjectId: string) => this.StartCoroutine(this.OnDeleteMonster(ObjectId, monster)));
     }
 
     private OnCreateMonster(ObjectId: string, monster: Monster) {
         //create monster
         const prefabObj = Resources.Load(monster.Name) as GameObject;
         const newObj:GameObject = Object.Instantiate(prefabObj, this.spawnPoints[0],Quaternion.identity) as GameObject;
-
+        newObj.GetComponent<TransformSyncHelper>().Id = monster.ObjectId;
         this._currentMonsters.set(ObjectId, monster);
         this._currentMonstersObj.set(ObjectId, newObj);
         console.log("spawn!");
@@ -48,10 +48,14 @@ export default class MonsterSpawnManager extends ZepetoScriptBehaviour {
         
     }
 
-    private OnDeleteMonster(ObjectId: string, monster: Monster) {
-        GameObject.Destroy(this._currentMonstersObj.get(ObjectId));
+    private * OnDeleteMonster(ObjectId: string, monster: Monster) {
         this._currentMonsters.delete(ObjectId);
         this._currentMonstersObj.delete(ObjectId);
         //destroy monster
+
+
+        // Destroy Object 4seconds
+        yield new WaitForSeconds(4);
+        GameObject.Destroy(this._currentMonstersObj.get(ObjectId));
     }
 }

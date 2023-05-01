@@ -5,25 +5,38 @@ import { loadDataStorage} from 'ZEPETO.Multiplay.DataStorage'
 
 const MaxExp = 30;
 const MaxMonster = 10;
-
-export default class MonsterHunterModule extends IModule {
-    private monsterData: Record<string, IMonsterData> = {
-        "Golem": {
+const defaultPlayerData: [string, number][] = [
+    ['MaxHp', 200],
+    ['AD', 20],
+    ['Level', 1],
+    ['Exp', 0],
+];
+const monsterData = new Map<string, IMonsterData>([
+    [
+        "Golem",
+        {
             Name: "Golem",
             MaxHp: 100,
             Power: 10,
             RewardCurrency: 10,
             RewardExp: 10,
-        },
-        "Slime": {
+        }
+    ],
+    [
+        "Slime",
+        {
             Name: "Slime",
             MaxHp: 500,
             Power: 20,
             RewardCurrency: 20,
             RewardExp: 20,
-        },
-        // ...
-    };
+        }
+    ]
+    // ...
+]);
+
+export default class MonsterHunterModule extends IModule {
+    private playerData: Map<string, IPlayerData> = new Map<string, IPlayerData>();
     private serverObjId = 10000;
 
     async OnCreate() {
@@ -32,32 +45,36 @@ export default class MonsterHunterModule extends IModule {
             if(MaxMonster > this.server.state.Monsters.size)
                 this.CreateBaseMonster(); 
         }, 3000); 
-        
-        //TODO : 서버에서 Set해서 클라로 주는걸로 변경
-        this.server.onMessage(MESSAGE.SetEntity, (client, message) => {
-            const { ObjectId, MaxHp, Hp } = message;
 
-            let entity = this.server.state.Monsters.get(ObjectId);
-            if(entity === null || entity === undefined){
-                entity = new Monster();
-                entity.ObjectId = ObjectId;
-                entity.MaxHp = MaxHp;
-                entity.Hp = Hp ?? MaxHp;
-                console.log("set entity");
-                this.server.state.Monsters.set(ObjectId.toString(), entity);
+        this.server.onMessage(MESSAGE.TakeDamageToMonster, (client, monsterObjId:string) => {
+            console.log("Attack!");
+            const quantity = this.playerData.get(client.sessionId).AD;
+            let monster = this.server.state.Monsters.get(monsterObjId.toString());
+            if(monster && monster.Hp != 0) {
+                let currentHp = monster.Hp - quantity;
+                currentHp = currentHp < 0 ? 0 :currentHp;
+                if (currentHp == 0) {
+                    //monster die
+                    console.log(`${monster.Name} is die`);
+                    this.OnMonsterDie(client, monster);
+                }
+                monster.Hp =  currentHp;
             }
         });
 
-        this.server.onMessage(MESSAGE.TakeDamage, (client, message) => {
-            const { attacker, victim, quantity } = message;
-            let entity = this.server.state.Monsters.get(victim.toString());
-            if(entity && entity.Hp != 0) {
-                let currentHp = entity.Hp - quantity;
+        this.server.onMessage(MESSAGE.TakeDamageToPlayer, (client, monsterObjId:string) => {
+            let monster = this.server.state.Monsters.get(victim.toString());
+            const quantity = monsterData.get(monsterObjId.Name).AD;
+            
+            let player = this.server.state.players.get(client.sessionId);
+            if(player && player.Hp != 0) {
+                let currentHp = player.Hp - quantity;
                 currentHp = currentHp < 0 ? 0 :currentHp;
                 if (currentHp == 0) {
-                    this.DeathEvent(attacker, victim);
+                    //player die
+                    console.log(`${client.sessionId} is die`);
                 }
-                entity.Hp =  currentHp;
+                player.Hp =  currentHp;
             }
         });
 
@@ -69,7 +86,6 @@ export default class MonsterHunterModule extends IModule {
         });
 
         this.server.onMessage(MESSAGE.GainExp, async (client, quantity: number) => {
-
             const storage = await loadDataStorage(client.userId);
 
             if (storage !== null) {
@@ -88,20 +104,25 @@ export default class MonsterHunterModule extends IModule {
                     let levelValues = await storage.get("Level") as number;
                     await storage.set("Level", levelValues + levelChangeValue);
                 }
-                await this.GetAllPlayerData(client);
+                await this.LoadPlayerData(client);
             }
         });
 
         //Load Player DataStorage (no data : default value)
-        this.server.onMessage(MESSAGE.GetAllPlayerData, async (client) => {
-            await this.GetAllPlayerData(client);
+        this.server.onMessage(MESSAGE.LoadPlayerData, async (client) => {
+            await this.LoadPlayerData(client);
         });
     }
 
     async OnJoin(client: SandboxPlayer) {
+        //load data
+        await this.LoadPlayerData(client);
     }
 
     async OnLeave(client: SandboxPlayer) {
+        //save data
+        await this.SavePlayerData(client);
+        this.playerData.delete(client.sessionId);
     }
 
     OnTick(deltaTime: number) {
@@ -110,7 +131,7 @@ export default class MonsterHunterModule extends IModule {
     
     CreateBaseMonster(){
         console.log("Spawn!");
-        const monster = this.monsterData['Golem'];
+        const monster = monsterData.get('Golem');
     
         if(monster === undefined){
             console.log("undefine");
@@ -126,31 +147,25 @@ export default class MonsterHunterModule extends IModule {
         this.server.state.Monsters.set(ObjectId, entity);
     }
 
-    DeathEvent(attacker:string, victim:string){
-        const entity = this.server.state.Monsters.get(victim);
-        if(entity !== null){
-            const monster = this.monsterData[entity.Name];
+    OnMonsterDie(client:SandboxPlayer, monster:Monster){
+        if(monster !== null){
+            const monster = monsterData.get(monster.Name);
+            
+            client.send("OnReward"+attacker,monster);
 
-            this.server.broadcast("OnReward"+attacker,monster);
+            //엔티티 제거
+            this.server.state.Monsters.delete(victim);
         }
-        //엔티티 제거
-        this.server.state.Monsters.delete(victim);
     }
 
-    async GetAllPlayerData(client : SandboxPlayer){
+    async LoadPlayerData(client : SandboxPlayer){
         let isNewMember : boolean = false;
-        const defaultValues: [string, number][] = [
-            ['MaxHp', 200],
-            ['AD', 20],
-            ['Level', 1],
-            ['Exp', 0],
-        ];
-
+        
         const storage = await loadDataStorage(client.userId);
         if (storage !== null) {
-            let values = await storage.mget(defaultValues.map(([key]) => key)) as IPlayerData;
+            let values = await storage.mget(defaultPlayerData.map(([key]) => key)) as IPlayerData;
 
-            for (const [key, defaultValue] of defaultValues) {
+            for (const [key, defaultValue] of defaultPlayerData) {
                 const value = values[key];
                 if (value === undefined || value === null) {
                     await storage.set(key, defaultValue);
@@ -158,9 +173,21 @@ export default class MonsterHunterModule extends IModule {
                 }
             }
             if(isNewMember){
-                values = await storage.mget(defaultValues.map(([key]) => key)) as IPlayerData;
+                values = await storage.mget(defaultPlayerData.map(([key]) => key)) as IPlayerData;
             }
+            
+            this.playerData.set(client.sessionId, values);
             client.send('onGetAllPlayerDataResult', values );
+        }
+    }
+    
+    async SavePlayerData(client : SandboxPlayer) {
+        const storage = await loadDataStorage(client.userId);
+        for (const [key, data] of this.playerData[client.sessionId]) {
+            const value = values[key];
+            if (value === undefined || value === null) {
+                await storage.set(key, data);
+            }
         }
     }
 
@@ -177,7 +204,7 @@ interface IPlayerData {
 interface IMonsterData {
     Name : string;
     MaxHp : number;
-    Power : number;
+    AD : number;
     //reward
     RewardCurrency: number;
     RewardExp: number;
@@ -185,9 +212,10 @@ interface IMonsterData {
 
 enum MESSAGE {
     SetEntity = "SetEntity",
-    TakeDamage = "TakeDamage",
+    TakeDamageToMonster = "TakeDamageToMonster",
+    TakeDamageToPlayer = "TakeDamageToPlayer",
     GainHp = "GainHp",
     GainExp = "GainExp",
-    GetAllPlayerData = "GetAllPlayerData",
+    LoadPlayerData = "LoadPlayerData",
     SpawnMonster = "SpawnMonster"
 }

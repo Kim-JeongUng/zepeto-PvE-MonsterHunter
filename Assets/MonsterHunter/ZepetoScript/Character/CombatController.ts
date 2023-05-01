@@ -44,12 +44,8 @@ export default class CombatController extends Entity {
     
     
     public AttackMonster(coll:Collider){
-        const data = new RoomData();
-        data.Add("attacker", this.GetComponent<TransformSyncHelper>().Id);
-        data.Add("victim", coll.GetComponent<TransformSyncHelper>().Id);
-        data.Add("quantity", this.attackPower);
-
-        this._room.Send("TakeDamage", data.GetObject());
+        const monsterObjId :string = coll.GetComponent<TransformSyncHelper>().Id;
+        this._room.Send("TakeDamageToMonster", monsterObjId);
     }
     
     public SetCharacterData(characterData: Map<string, number> ){
@@ -58,8 +54,6 @@ export default class CombatController extends Entity {
         this.attackPower = characterData.get(DataEnum.AD);
         this.skillPower = 100;
         
-        //서버 동기화
-        this.SetEntity();
     }
     
     private GetExpReward(quantity:number){
