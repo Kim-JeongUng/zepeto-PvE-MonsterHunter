@@ -4,6 +4,7 @@ import {Monster} from "ZEPETO.Multiplay.Schema";
 import { loadDataStorage} from 'ZEPETO.Multiplay.DataStorage'
 
 const MaxExp = 30;
+const MaxMonster = 10;
 
 export default class MonsterHunterModule extends IModule {
     private monsterData: Record<string, IMonsterData> = {
@@ -26,9 +27,12 @@ export default class MonsterHunterModule extends IModule {
     private serverObjId = 10000;
 
     async OnCreate() {
-        /**Monster Sync**/
-        this.CreateBaseMonster();
-
+        //3초 간격으로 몬스터 개수 파악 후 생성
+        setInterval(() => {
+            if(MaxMonster > this.server.state.Monsters.size)
+                this.CreateBaseMonster(); 
+        }, 3000); 
+        
         //TODO : 서버에서 Set해서 클라로 주는걸로 변경
         this.server.onMessage(MESSAGE.SetEntity, (client, message) => {
             const { ObjectId, MaxHp, Hp } = message;
@@ -103,10 +107,9 @@ export default class MonsterHunterModule extends IModule {
     OnTick(deltaTime: number) {
 
     }
+    
     CreateBaseMonster(){
-
-        console.log(Object.keys(this.monsterData).length);
-        
+        console.log("Spawn!");
         const monster = this.monsterData['Golem'];
     
         if(monster === undefined){
@@ -116,6 +119,7 @@ export default class MonsterHunterModule extends IModule {
         const ObjectId = (this.serverObjId++).toString();
         let entity = new Monster();
         entity.ObjectId = ObjectId;
+        entity.SpawnPoint = Math.floor(Math.random() * 11);
         entity.Name = monster.Name;
         entity.MaxHp = monster.MaxHp;
         entity.Hp = monster.MaxHp;
@@ -125,10 +129,12 @@ export default class MonsterHunterModule extends IModule {
     DeathEvent(attacker:string, victim:string){
         const entity = this.server.state.Monsters.get(victim);
         if(entity !== null){
-            const monster = this.monsterData[entity.name];
+            const monster = this.monsterData[entity.Name];
 
             this.server.broadcast("OnReward"+attacker,monster);
         }
+        //엔티티 제거
+        this.server.state.Monsters.delete(victim);
     }
 
     async GetAllPlayerData(client : SandboxPlayer){

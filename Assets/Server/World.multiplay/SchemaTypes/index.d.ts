@@ -53,6 +53,7 @@ declare module "ZEPETO.Multiplay.Schema" {
 	}
 	class Monster extends Schema {
 		ObjectId: string;
+		SpawnPoint: number;
 		Name: string;
 		MaxHp: number;
 		Hp: number;

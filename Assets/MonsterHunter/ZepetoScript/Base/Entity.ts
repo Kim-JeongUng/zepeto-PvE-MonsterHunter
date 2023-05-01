@@ -3,7 +3,7 @@ import {Object, WaitUntil, WaitForSeconds, Animator, GameObject} from "UnityEngi
 import {RoomData} from "ZEPETO.Multiplay";
 import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager';
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
-import {State, GameEntity} from "ZEPETO.Multiplay.Schema";
+import {State} from "ZEPETO.Multiplay.Schema";
 import {ZepetoWorldMultiplay} from "ZEPETO.World";
 
 export default abstract class Entity extends ZepetoScriptBehaviour{
@@ -15,7 +15,6 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
     
     protected isMonster: boolean;
     
-    private _gameEntity :GameEntity;
     
     constructor(isMonster :boolean) {
         super();
@@ -31,29 +30,24 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
         yield new WaitUntil(()=>MultiplayManager.instance.room != null );
         
         const objId = this.GetComponent<TransformSyncHelper>().Id;
+        //
+        // if(MultiplayManager.instance.room.State.GameEntities?.get_Item(objId) == null ) {
+        //     //this.SetEntity(objId);
+        //     yield new WaitUntil(() =>MultiplayManager.instance.room.State.GameEntities?.get_Item(objId) != null);
+        // }
         
-        if(MultiplayManager.instance.room.State.GameEntities?.get_Item(objId) == null ) {
-            this.SetEntity(objId);
-            yield new WaitUntil(() =>MultiplayManager.instance.room.State.GameEntities?.get_Item(objId) != null);
-        }
+        //this._gameEntity = MultiplayManager.instance.room.State.GameEntities?.get_Item(objId);
         
-        this._gameEntity = MultiplayManager.instance.room.State.GameEntities?.get_Item(objId);
-        
-        //이미 죽어 있는 경우
-        if(this._gameEntity.Hp == 0) {
-            GameObject.Destroy(this.gameObject);
-            return;
-        }
-        
-        this.OnChangeEntity();
-        this._gameEntity.add_OnChange(() => {
-            this.OnChangeEntity();
-        });
+        //TODO : HP변경         
+        // this.OnChangeEntity();
+        // this._gameEntity.add_OnChange(() => {
+        //     this.OnChangeEntity();
+        // });
     }
 
     private OnChangeEntity(){
             
-        this.hp = this._gameEntity.Hp;
+        //this.hp = this._gameEntity.Hp;
         console.log("Change Entity "+this.hp);
         this.SetHPbarUI();
         
@@ -67,13 +61,14 @@ export default abstract class Entity extends ZepetoScriptBehaviour{
         //TODO : HP UI 구현
     }
     
-    protected SetEntity(objId?:string){
-        const data = new RoomData();
-        data.Add("ObjectId", objId ?? this.GetComponent<TransformSyncHelper>().Id);
-        data.Add("isMonster", this.isMonster);
-        data.Add("MaxHp", this.maxHp);
-        MultiplayManager.instance.room.Send("SetEntity", data.GetObject());
-    }
+    //서버에서 내려주는 형식으로 변경
+    // protected SetEntity(objId?:string){
+    //     const data = new RoomData();
+    //     data.Add("ObjectId", objId ?? this.GetComponent<TransformSyncHelper>().Id);
+    //     data.Add("isMonster", this.isMonster);
+    //     data.Add("MaxHp", this.maxHp);
+    //     MultiplayManager.instance.room.Send("SetEntity", data.GetObject());
+    // }
 
     abstract Attack(target: Entity): void;
 

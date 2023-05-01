@@ -1,13 +1,16 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import {Monster, State} from "ZEPETO.Multiplay.Schema";
-import {GameObject, Object, Resources} from "UnityEngine";
+import {GameObject, Object, Resources, Vector3, Quaternion} from "UnityEngine";
 import {ZepetoWorldMultiplay} from "ZEPETO.World";
 import {Room} from "ZEPETO.Multiplay";
 
 export default class MonsterSpawnManager extends ZepetoScriptBehaviour {
+    @SerializeField() private spawnPoints:Vector3[] = []; 
     private _multiplay: ZepetoWorldMultiplay;
     private _room: Room;
-    private _currentMonsters: Map<string, Monster> = new Map<string, Monster>();
+    
+    private _currentMonsters: Map<string, Monster> = new Map<string, Monster>(); //서버 데이터
+    private _currentMonstersObj: Map<string, GameObject> = new Map<string, GameObject>(); //게임오브젝트
     
     Start() {
         this._multiplay = Object.FindObjectOfType<ZepetoWorldMultiplay>();
@@ -34,14 +37,21 @@ export default class MonsterSpawnManager extends ZepetoScriptBehaviour {
     }
 
     private OnCreateMonster(ObjectId: string, monster: Monster) {
-        this._currentMonsters.set(ObjectId, monster);
         //create monster
         const prefabObj = Resources.Load(monster.Name) as GameObject;
-        //const newObj:GameObject = Object.Instantiate(prefabObj, spawnPosition, spawnRotation) as GameObject;
+        const newObj:GameObject = Object.Instantiate(prefabObj, this.spawnPoints[0],Quaternion.identity) as GameObject;
+
+        this._currentMonsters.set(ObjectId, monster);
+        this._currentMonstersObj.set(ObjectId, newObj);
+        console.log("spawn!");
+        //오브젝트 설정
+        
     }
 
     private OnDeleteMonster(ObjectId: string, monster: Monster) {
+        GameObject.Destroy(this._currentMonstersObj.get(ObjectId));
         this._currentMonsters.delete(ObjectId);
+        this._currentMonstersObj.delete(ObjectId);
         //destroy monster
     }
 }
