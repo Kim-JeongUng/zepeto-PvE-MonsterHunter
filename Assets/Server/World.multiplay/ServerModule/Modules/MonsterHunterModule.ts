@@ -47,7 +47,7 @@ export default class MonsterHunterModule extends IModule {
         }, 3000); 
 
         this.server.onMessage(MESSAGE.TakeDamageToMonster, (client, monsterObjId:string) => {
-            console.log("Attack!");
+            console.log(monsterObjId+"Attack!");
             const quantity = this.playerData.get(client.sessionId).AD;
             let monster = this.server.state.Monsters.get(monsterObjId.toString());
             if(monster && monster.Hp != 0) {

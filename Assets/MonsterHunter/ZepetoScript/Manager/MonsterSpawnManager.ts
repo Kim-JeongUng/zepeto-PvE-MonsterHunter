@@ -43,7 +43,7 @@ export default class MonsterSpawnManager extends ZepetoScriptBehaviour {
         newObj.GetComponent<TransformSyncHelper>().Id = monster.ObjectId;
         this._currentMonsters.set(ObjectId, monster);
         this._currentMonstersObj.set(ObjectId, newObj);
-        console.log("spawn!");
+        console.log(ObjectId+"spawn!");
         //오브젝트 설정
         
     }

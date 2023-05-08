@@ -2,7 +2,6 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import {ZepetoCharacter, ZepetoPlayers} from "ZEPETO.Character.Controller";
 import {GameObject, AnimationClip, WaitForSeconds, Resources, Collider} from "UnityEngine";
 import {Button} from "UnityEngine.UI";
-import Entity from "../Base/Entity";
 import Sword from '../Equipment/Sword';
 import {Room, RoomData} from "ZEPETO.Multiplay";
 import TransformSyncHelper from '../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper';
@@ -10,20 +9,18 @@ import MultiplayManager from '../../../Zepeto Multiplay Component/ZepetoScript/C
 import LeaderBoardManager from '../../../Zepeto LeaderBoard Module/ZepetoScript/LeaderBoardManager';
 import {DataEnum} from '../Manager/DataManager';
 
-export default class CombatController extends Entity {
+export default class CombatController extends ZepetoScriptBehaviour {
     @SerializeField() private animationClip : AnimationClip;
+    @SerializeField() protected maxHp: number;
+    @SerializeField() protected hp: number;
+    
     private _localCharacter: ZepetoCharacter;
     private _attackBtn : Button;
     private _attackFlag : boolean = false;
     private _localSword : Collider;
     private _room: Room;
 
-    constructor(isMonster:boolean) {
-        super(false);
-    }
-
-    public Start() {
-        super.Start();
+    private Start() {
         this.OnLocalCharacterLoaded();
         this._localCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
         this.animationClip = Resources.Load("Slash1") as AnimationClip;
@@ -37,12 +34,6 @@ export default class CombatController extends Entity {
         });
     }
     
-    Attack(target: Entity) {
-    //     console.log(`${this.name} attacks ${target.name}.`);
-    //     target.TakeDamage(10);
-    }
-    
-    
     public AttackMonster(coll:Collider){
         const monsterObjId :string = coll.GetComponent<TransformSyncHelper>().Id;
         this._room.Send("TakeDamageToMonster", monsterObjId);
@@ -51,9 +42,6 @@ export default class CombatController extends Entity {
     public SetCharacterData(characterData: Map<string, number> ){
         this.maxHp = characterData.get(DataEnum.MaxHp);
         this.hp = this.maxHp;
-        this.attackPower = characterData.get(DataEnum.AD);
-        this.skillPower = 100;
-        
     }
     
     private GetExpReward(quantity:number){
