@@ -23,6 +23,7 @@ export default class MultiplayManager extends ZepetoScriptBehaviour {
     private readonly pingInterval:number = 1;
     
     get pingCheckCount(){ return this._pingCheckCount; }
+    get isMasterClient(){ return this._masterSessionId == this.room.SessionId; }
     get latency(){ return this._latency; }
     /* Singleton */
     private static m_instance: MultiplayManager = null;

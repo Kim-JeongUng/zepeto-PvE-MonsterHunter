@@ -27,10 +27,12 @@ export default class CombatController extends ZepetoScriptBehaviour {
 
         this._room = MultiplayManager.instance.room;
         const Id = this._room.SessionId;
-        this._room.AddMessageHandler("OnReward"+Id, (reward:IMonsterData) => {
-            LeaderBoardManager.instance.SendScore(1);
-            this.GetExpReward(reward.RewardExp);
-            this.GetCurrencyReward(reward.RewardCurrency);
+        this._room.AddMessageHandler("OnReward", (leaderboardScore:number) => {
+            LeaderBoardManager.instance.SendScore(leaderboardScore);
+            
+            // reward
+            // this.GetExpReward(reward.RewardExp);
+            // this.GetCurrencyReward(reward.RewardCurrency);
         });
     }
     

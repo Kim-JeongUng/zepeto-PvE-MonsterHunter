@@ -9,11 +9,24 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/runConfigurations/Zepeto_Script.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zepeto-PvE-MonsterHunter/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/Resources/HpBar/HpBar.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/Resources/HpBar/HpBar.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/Scene/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/MonsterBase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/MonsterBase.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/MonsterBase.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Base/MonsterBase.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Character/CombatController.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Equipment/Sword.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Manager/MonsterSpawnManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Manager/MonsterSpawnManager.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Manager/MonsterSpawnManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Manager/MonsterSpawnManager.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Monster/Golem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Monster/Golem.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Monster/Golem.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/Monster/Golem.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/UI/HpBar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/UI/HpBar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/UI/HpBar.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MonsterHunter/ZepetoScript/UI/HpBar.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Golem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Golem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Server/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Server/World.multiplay/ServerModule/Modules/MonsterHunterModule.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager.ts.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +138,7 @@
       <workItem from="1682705860755" duration="5581000" />
       <workItem from="1682946757860" duration="11943000" />
       <workItem from="1683566867949" duration="3896000" />
-      <workItem from="1683643143106" duration="987000" />
+      <workItem from="1683643143106" duration="11181000" />
     </task>
     <servers />
   </component>

@@ -18,6 +18,32 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"","assetPath":"Assets/MonsterHunter/ZepetoScript/Base/MonsterBase.ts","manifest":{"properties":[],"name":"","description":"","hasAnimatorMove":false},"isCompiled":false}'
-  typescriptHash: 047ccf61dca286d072a62d740be8b894
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
+    UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst MultiplayManager_1 =
+    require(\\\"../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager\\\");\\r\\nconst
+    TransformSyncHelper_1 = require(\\\"../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper\\\");\\r\\nconst
+    HpBar_1 = require(\\\"../UI/HpBar\\\");\\r\\nclass MonsterBase extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    Start() {\\r\\n        this.StartCoroutine(this.WaitRoom());\\r\\n       
+    this.animator = this.GetComponentInChildren($typeof(UnityEngine_1.Animator));\\r\\n       
+    this.hpBarScript = this.HpBarObject.GetComponentInChildren($typeof(HpBar_1.default));\\r\\n   
+    }\\r\\n    *WaitRoom() {\\r\\n        yield new UnityEngine_1.WaitUntil(() =>
+    MultiplayManager_1.default.instance.room != null);\\r\\n        const objId =
+    this.GetComponent($typeof(TransformSyncHelper_1.default)).Id;\\r\\n        this.gameEntity
+    = MultiplayManager_1.default.instance.room.State.Monsters?.get_Item(objId);\\r\\n       
+    if (this.gameEntity) {\\r\\n            this.maxHp = this.gameEntity.Hp;\\r\\n           
+    //TODO : HP\uBCC0\uACBD         \\r\\n            this.OnChangeEntity();\\r\\n           
+    this.gameEntity?.add_OnChange(() => {\\r\\n                this.OnChangeEntity();\\r\\n           
+    });\\r\\n        }\\r\\n    }\\r\\n    OnChangeEntity() {\\r\\n        if (!this.gameEntity)
+    {\\r\\n            console.log(\\\"die?\\\");\\r\\n            return;\\r\\n       
+    }\\r\\n        this.hp = this.gameEntity?.Hp;\\r\\n        console.log(\\\"Change
+    Entity \\\" + this.hp);\\r\\n        this.SetHPbarUI();\\r\\n        if (MultiplayManager_1.default.instance.isMasterClient
+    && this.hp === 0) {\\r\\n            this.StartCoroutine(this.OnDie());\\r\\n       
+    }\\r\\n    }\\r\\n    SetHPbarUI() {\\r\\n        this.hpBarScript.SetHpBar(this.hp
+    / this.maxHp);\\r\\n    }\\r\\n    *OnDie() {\\r\\n        console.log(\\\"die\\\");\\r\\n       
+    // Death anim \\r\\n        this.animator.Play(\\\"Die\\\");\\r\\n    }\\r\\n   
+    GainHp(quantity) {\\r\\n        this.hp = this.hp + quantity > this.maxHp ? this.hp
+    + quantity : this.maxHp;\\r\\n    }\\r\\n}\\r\\nexports.default = MonsterBase;\\r\\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTW9uc3RlckJhc2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJNb25zdGVyQmFzZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUVyRCw2Q0FBNEQ7QUFFNUQsK0dBQXdHO0FBQ3hHLHdIQUFpSDtBQUNqSCx1Q0FBZ0M7QUFFaEMsTUFBcUIsV0FBWSxTQUFRLHFDQUFxQjtJQVFuRCxLQUFLO1FBQ1IsSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsUUFBUSxFQUFFLENBQUMsQ0FBQztRQUNyQyxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxzQkFBc0IsU0FBQyxzQkFBUSxFQUFHLENBQUM7UUFDeEQsSUFBSSxDQUFDLFdBQVcsR0FBRyxJQUFJLENBQUMsV0FBVyxDQUFDLHNCQUFzQixTQUFDLGVBQUssRUFBRyxDQUFDO0lBQ3hFLENBQUM7SUFDTyxDQUFDLFFBQVE7UUFDYixNQUFNLElBQUksdUJBQVMsQ0FBQyxHQUFHLEVBQUUsQ0FBQywwQkFBZ0IsQ0FBQyxRQUFRLENBQUMsSUFBSSxJQUFJLElBQUksQ0FBQyxDQUFDO1FBRWxFLE1BQU0sS0FBSyxHQUFHLElBQUksQ0FBQyxZQUFZLFNBQUMsNkJBQW1CLEdBQUksRUFBRSxDQUFDO1FBQzFELElBQUksQ0FBQyxVQUFVLEdBQUcsMEJBQWdCLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxFQUFFLFFBQVEsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUNqRixJQUFHLElBQUksQ0FBQyxVQUFVLEVBQUU7WUFDaEIsSUFBSSxDQUFDLEtBQUssR0FBRyxJQUFJLENBQUMsVUFBVSxDQUFDLEVBQUUsQ0FBQztZQUNoQyxzQkFBc0I7WUFDdEIsSUFBSSxDQUFDLGNBQWMsRUFBRSxDQUFDO1lBQ3RCLElBQUksQ0FBQyxVQUFVLEVBQUUsWUFBWSxDQUFDLEdBQUcsRUFBRTtnQkFDL0IsSUFBSSxDQUFDLGNBQWMsRUFBRSxDQUFDO1lBQzFCLENBQUMsQ0FBQyxDQUFDO1NBQ047SUFDTCxDQUFDO0lBRU8sY0FBYztRQUNsQixJQUFJLENBQUMsSUFBSSxDQUFDLFVBQVUsRUFBRTtZQUNsQixPQUFPLENBQUMsR0FBRyxDQUFDLE1BQU0sQ0FBQyxDQUFDO1lBQ3BCLE9BQU87U0FDVjtRQUVELElBQUksQ0FBQyxFQUFFLEdBQUcsSUFBSSxDQUFDLFVBQVUsRUFBRSxFQUFFLENBQUM7UUFDOUIsT0FBTyxDQUFDLEdBQUcsQ0FBQyxnQkFBZ0IsR0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUM7UUFDdEMsSUFBSSxDQUFDLFVBQVUsRUFBRSxDQUFDO1FBRWxCLElBQUcsMEJBQWdCLENBQUMsUUFBUSxDQUFDLGNBQWMsSUFBSSxJQUFJLENBQUMsRUFBRSxLQUFLLENBQUMsRUFBQztZQUN6RCxJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxLQUFLLEVBQUUsQ0FBQyxDQUFDO1NBQ3JDO0lBRUwsQ0FBQztJQUVPLFVBQVU7UUFDZCxJQUFJLENBQUMsV0FBVyxDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsRUFBRSxHQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUNsRCxDQUFDO0lBRVMsQ0FBRSxLQUFLO1FBQ2IsT0FBTyxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUVuQixjQUFjO1FBQ2QsSUFBSSxDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDOUIsQ0FBQztJQUdELE1BQU0sQ0FBQyxRQUFnQjtRQUNuQixJQUFJLENBQUMsRUFBRSxHQUFHLElBQUksQ0FBQyxFQUFFLEdBQUcsUUFBUSxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFFLElBQUksQ0FBQyxFQUFFLEdBQUcsUUFBUSxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDO0lBQ2pGLENBQUM7Q0FFSjtBQTVERCw4QkE0REMifQ==\",\"assetPath\":\"Assets/MonsterHunter/ZepetoScript/Base/MonsterBase.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"HpBarObject\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[{\"name\":\"SerializeField\",\"args\":[]}]},{\"assembly\":\"mscorlib\",\"name\":\"maxHp\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[{\"name\":\"SerializeField\",\"args\":[]}]},{\"assembly\":\"mscorlib\",\"name\":\"hp\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[{\"name\":\"SerializeField\",\"args\":[]}]},{\"assembly\":\"UnityEngine.AnimationModule\",\"name\":\"animator\",\"type\":\"UnityEngine.Animator\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[{\"name\":\"SerializeField\",\"args\":[]}]}],\"name\":\"MonsterBase\",\"description\":\"\",\"hasAnimatorMove\":false},\"isCompiled\":true}"
+  typescriptHash: f90708469f5929c9c62607e31601f21c
   onlyWriteTrigger: 0

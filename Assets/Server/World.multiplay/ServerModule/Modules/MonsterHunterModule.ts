@@ -47,18 +47,18 @@ export default class MonsterHunterModule extends IModule {
         }, 3000); 
 
         this.server.onMessage(MESSAGE.TakeDamageToMonster, (client, monsterObjId:string) => {
-            console.log(monsterObjId+"Attack!");
             const quantity = this.playerData.get(client.sessionId).AD;
-            let monster = this.server.state.Monsters.get(monsterObjId.toString());
+            let monster:Monster = this.server.state.Monsters.get(monsterObjId.toString());
+            console.log(monsterObjId+"Attack!" + monster.Hp+" "+quantity);
             if(monster && monster.Hp != 0) {
                 let currentHp = monster.Hp - quantity;
                 currentHp = currentHp < 0 ? 0 :currentHp;
+                monster.Hp =  currentHp;
                 if (currentHp == 0) {
                     //monster die
                     console.log(`${monster.Name} is die`);
                     this.OnMonsterDie(client, monster);
                 }
-                monster.Hp =  currentHp;
             }
         });
 
@@ -130,9 +130,9 @@ export default class MonsterHunterModule extends IModule {
     }
     
     CreateBaseMonster(){
-        console.log("Spawn!");
         const monster = monsterData.get('Golem');
-    
+
+        console.log("Spawn!"+monster.Name);
         if(monster === undefined){
             console.log("undefine");
             return;
@@ -142,19 +142,21 @@ export default class MonsterHunterModule extends IModule {
         entity.ObjectId = ObjectId;
         entity.SpawnPoint = Math.floor(Math.random() * 11);
         entity.Name = monster.Name;
-        entity.MaxHp = monster.MaxHp;
         entity.Hp = monster.MaxHp;
         this.server.state.Monsters.set(ObjectId, entity);
     }
 
     OnMonsterDie(client:SandboxPlayer, monster:Monster){
         if(monster !== null){
-            const monster = monsterData.get(monster.Name);
+            const monsterReward = monsterData.get(monster.Name);
+            client.send("OnReward",1);
+            //TODO : Reward 서버에서 처리
+            console.log("OnReward"+monsterReward.Name);
             
-            client.send("OnReward"+attacker,monster);
-
-            //엔티티 제거
-            this.server.state.Monsters.delete(victim);
+            //3초 후 서버에서 엔티티 제거
+            setTimeout(()=> {
+                this.server.state.Monsters.delete(monster.ObjectId);
+            }, 3000);
         }
     }
 

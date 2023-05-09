@@ -1,8 +1,7 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import Monster from "../Base/MonsterBase";
+import MonsterBase from "../Base/MonsterBase";
 
-export default class Golem extends Monster {
-
+export default class Golem extends MonsterBase {
     private FSM(){
         //행동 패턴 정의
     }
