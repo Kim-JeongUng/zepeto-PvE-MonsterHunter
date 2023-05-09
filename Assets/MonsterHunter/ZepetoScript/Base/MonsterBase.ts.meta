@@ -18,29 +18,6 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
-    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
-    UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst MultiplayManager_1 =
-    require(\\\"../../../Zepeto Multiplay Component/ZepetoScript/Common/MultiplayManager\\\");\\r\\nconst
-    TransformSyncHelper_1 = require(\\\"../../../Zepeto Multiplay Component/ZepetoScript/Transform/TransformSyncHelper\\\");\\r\\nclass
-    MonsterBase extends ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    Start()
-    {\\r\\n        this.StartCoroutine(this.WaitRoom());\\r\\n        this.animator
-    = this.GetComponentInChildren($typeof(UnityEngine_1.Animator));\\r\\n    }\\r\\n   
-    *WaitRoom() {\\r\\n        yield new UnityEngine_1.WaitUntil(() => MultiplayManager_1.default.instance.room
-    != null);\\r\\n        const objId = this.GetComponent($typeof(TransformSyncHelper_1.default)).Id;\\r\\n       
-    console.log(objId);\\r\\n        this._gameEntity = MultiplayManager_1.default.instance.room.State.Monsters?.get_Item(objId);\\r\\n       
-    //TODO : HP\uBCC0\uACBD         \\r\\n        this.OnChangeEntity();\\r\\n       
-    this._gameEntity?.add_OnChange(() => {\\r\\n            this.OnChangeEntity();\\r\\n       
-    });\\r\\n    }\\r\\n    OnChangeEntity() {\\r\\n        this.hp = this._gameEntity?.Hp;\\r\\n       
-    console.log(\\\"Change Entity \\\" + this.hp);\\r\\n        this.SetHPbarUI();\\r\\n       
-    const isOwner = this.GetComponent($typeof(TransformSyncHelper_1.default)).isOwner;\\r\\n       
-    if (isOwner && this.hp === 0) {\\r\\n            this.StartCoroutine(this.OnDie());\\r\\n       
-    }\\r\\n        if (!this._gameEntity) {\\r\\n            console.log(\\\"die?\\\");\\r\\n       
-    }\\r\\n    }\\r\\n    SetHPbarUI() {\\r\\n        //TODO : HP UI \uAD6C\uD604\\r\\n   
-    }\\r\\n    *OnDie() {\\r\\n        console.log(\\\"die\\\");\\r\\n        //
-    Death anim \\r\\n        this.animator.Play(\\\"Die\\\");\\r\\n    }\\r\\n   
-    GainHp(quantity) {\\r\\n        this.hp = this.hp + quantity > this.maxHp ? this.hp
-    + quantity : this.maxHp;\\r\\n    }\\r\\n}\\r\\nexports.default = MonsterBase;\\r\\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTW9uc3RlckJhc2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJNb25zdGVyQmFzZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUVyRCw2Q0FBZ0Q7QUFDaEQsK0dBQXdHO0FBQ3hHLHdIQUFpSDtBQUVqSCxNQUFxQixXQUFZLFNBQVEscUNBQXFCO0lBTW5ELEtBQUs7UUFDUixJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxRQUFRLEVBQUUsQ0FBQyxDQUFDO1FBQ3JDLElBQUksQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLHNCQUFzQixTQUFDLHNCQUFRLEVBQUcsQ0FBQztJQUM1RCxDQUFDO0lBRU8sQ0FBQyxRQUFRO1FBQ2IsTUFBTSxJQUFJLHVCQUFTLENBQUMsR0FBRSxFQUFFLENBQUEsMEJBQWdCLENBQUMsUUFBUSxDQUFDLElBQUksSUFBSSxJQUFJLENBQUUsQ0FBQztRQUVqRSxNQUFNLEtBQUssR0FBRyxJQUFJLENBQUMsWUFBWSxTQUFDLDZCQUFtQixHQUFJLEVBQUUsQ0FBQztRQUMxRCxPQUFPLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBQ25CLElBQUksQ0FBQyxXQUFXLEdBQUcsMEJBQWdCLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxFQUFFLFFBQVEsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUVsRixzQkFBc0I7UUFDdEIsSUFBSSxDQUFDLGNBQWMsRUFBRSxDQUFDO1FBQ3RCLElBQUksQ0FBQyxXQUFXLEVBQUUsWUFBWSxDQUFDLEdBQUcsRUFBRTtZQUNoQyxJQUFJLENBQUMsY0FBYyxFQUFFLENBQUM7UUFDMUIsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRU8sY0FBYztRQUVsQixJQUFJLENBQUMsRUFBRSxHQUFHLElBQUksQ0FBQyxXQUFXLEVBQUUsRUFBRSxDQUFDO1FBQy9CLE9BQU8sQ0FBQyxHQUFHLENBQUMsZ0JBQWdCLEdBQUMsSUFBSSxDQUFDLEVBQUUsQ0FBQyxDQUFDO1FBQ3RDLElBQUksQ0FBQyxVQUFVLEVBQUUsQ0FBQztRQUVsQixNQUFNLE9BQU8sR0FBRyxJQUFJLENBQUMsWUFBWSxTQUFDLDZCQUFtQixHQUFJLE9BQU8sQ0FBQztRQUNqRSxJQUFHLE9BQU8sSUFBSSxJQUFJLENBQUMsRUFBRSxLQUFLLENBQUMsRUFBQztZQUN4QixJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxLQUFLLEVBQUUsQ0FBQyxDQUFDO1NBQ3JDO1FBRUQsSUFBSSxDQUFDLElBQUksQ0FBQyxXQUFXLEVBQUU7WUFDbkIsT0FBTyxDQUFDLEdBQUcsQ0FBQyxNQUFNLENBQUMsQ0FBQztTQUN2QjtJQUNMLENBQUM7SUFFTyxVQUFVO1FBQ2QsaUJBQWlCO0lBQ3JCLENBQUM7SUFFUyxDQUFFLEtBQUs7UUFDYixPQUFPLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBRW5CLGNBQWM7UUFDZCxJQUFJLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUM5QixDQUFDO0lBR0QsTUFBTSxDQUFDLFFBQWdCO1FBQ25CLElBQUksQ0FBQyxFQUFFLEdBQUcsSUFBSSxDQUFDLEVBQUUsR0FBRyxRQUFRLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQyxDQUFDLENBQUUsSUFBSSxDQUFDLEVBQUUsR0FBRyxRQUFRLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUM7SUFDakYsQ0FBQztDQUVKO0FBekRELDhCQXlEQyJ9\",\"assetPath\":\"Assets/MonsterHunter/ZepetoScript/Base/MonsterBase.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"mscorlib\",\"name\":\"maxHp\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[{\"name\":\"SerializeField\",\"args\":[]}]},{\"assembly\":\"mscorlib\",\"name\":\"hp\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[{\"name\":\"SerializeField\",\"args\":[]}]},{\"assembly\":\"UnityEngine.AnimationModule\",\"name\":\"animator\",\"type\":\"UnityEngine.Animator\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[{\"name\":\"SerializeField\",\"args\":[]}]}],\"name\":\"MonsterBase\",\"description\":\"\",\"hasAnimatorMove\":false},\"isCompiled\":true}"
-  typescriptHash: 990a8dd6a0bab6dab28a48277d5f3d1f
+  compiledResult: '{"source":"","assetPath":"Assets/MonsterHunter/ZepetoScript/Base/MonsterBase.ts","manifest":{"properties":[],"name":"","description":"","hasAnimatorMove":false},"isCompiled":false}'
+  typescriptHash: 047ccf61dca286d072a62d740be8b894
   onlyWriteTrigger: 0

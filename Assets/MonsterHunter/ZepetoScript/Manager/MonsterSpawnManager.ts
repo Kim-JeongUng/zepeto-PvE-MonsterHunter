@@ -45,6 +45,8 @@ export default class MonsterSpawnManager extends ZepetoScriptBehaviour {
         this._currentMonstersObj.set(ObjectId, newObj);
         console.log(ObjectId+"spawn!");
         //오브젝트 설정
+        newObj.GetComponent<MonsterBase>().gameEntity = monster;
+        
         
     }
 
