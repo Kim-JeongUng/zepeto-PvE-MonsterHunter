@@ -18,7 +18,8 @@
 	},
 	"homepage": "https://github.com/Kim-JeongUng/zepeto-PvE-MonsterHunter#readme",
 	"dependencies": {
-		"typescript": "^4.3.5",
+		"@zepeto/sandbox": "file:Library/Packages/zepeto-sandbox.tgz",
+		"typescript": "^4.9.5",
 		"zepeto-script-compiler": "file:Library/Packages/zepeto-script-compiler.tgz"
 	}
 }

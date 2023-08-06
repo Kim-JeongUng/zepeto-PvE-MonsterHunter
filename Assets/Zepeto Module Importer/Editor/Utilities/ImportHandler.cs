@@ -9,10 +9,10 @@ public class ImportHandler
     public static IEnumerator ImportPackage(string title, string version)
     {
         string downloadUrl = Path.Combine(ConstantManager.DOWNLOAD_PATH, title,
-            version + ConstantManager.EXTENSION_UNITYPACKAGE).Replace('\\', '/');
+            version + ConstantManager.EXTENSION_UNITYPACKAGE);
         Debug.Log(downloadUrl);
 
-        string tempFilePath = Path.Combine(Application.temporaryCachePath, title+ConstantManager.EXTENSION_UNITYPACKAGE);
+        string tempFilePath = Path.Combine(Application.temporaryCachePath, title + ConstantManager.EXTENSION_UNITYPACKAGE);
 
         using (var webClient = new WebClient())
         {
@@ -26,7 +26,6 @@ public class ImportHandler
             {
                 EditorUtility.ClearProgressBar();
                 AssetDatabase.ImportPackage(tempFilePath, true);
-
                 File.Delete(tempFilePath);
             };
 
