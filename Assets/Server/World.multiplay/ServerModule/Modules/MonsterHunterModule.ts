@@ -40,7 +40,7 @@ export default class MonsterHunterModule extends IModule {
     private serverObjId = 10000;
 
     async OnCreate() {
-        //3초 간격으로 몬스터 개수 파악 후 생성
+        //3초 간격으로 맵 내에 몬스터 개수 파악 후 생성
         setInterval(() => {
             if(MaxMonster > this.server.state.Monsters.size)
                 this.CreateBaseMonster(); 

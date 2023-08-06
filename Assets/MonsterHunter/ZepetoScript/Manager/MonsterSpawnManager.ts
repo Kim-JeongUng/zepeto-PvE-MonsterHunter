@@ -9,7 +9,6 @@ import Golem from "../Monster/Golem";
 
 export default class MonsterSpawnManager extends ZepetoScriptBehaviour {
     @SerializeField() private spawnPoints:Vector3[] = []; 
-    @SerializeField() private temp:GameObject;
     
     private _multiplay: ZepetoWorldMultiplay;
     private _room: Room;
@@ -18,7 +17,6 @@ export default class MonsterSpawnManager extends ZepetoScriptBehaviour {
     private _currentMonstersObj: Map<string, GameObject> = new Map<string, GameObject>(); //게임오브젝트
     
     Start() {
-        // const obj = Object.Instantiate(this.temp) as GameObject;
         // console.log(obj.tag);
         this._multiplay = Object.FindObjectOfType<ZepetoWorldMultiplay>();
         this._multiplay.RoomJoined += (room: Room) => {

@@ -43,7 +43,7 @@ export default class LeaderboardManager extends ZepetoScriptBehaviour {
         this.SendScore(0);
 
         this.openBtn.onClick.AddListener(() => {
-            console.log("CLick");
+            console.log("Leaderboard Open");
             this._loadCoroutine = this.StartCoroutine(this.LoadLeaderboard());
         });
         this.closeBtn.onClick.AddListener(() => {
@@ -59,6 +59,16 @@ export default class LeaderboardManager extends ZepetoScriptBehaviour {
     public SendScore(score: number) {
         this._myBestScore = (score < this._myBestScore || this._myBestScore == 0) ? score : this._myBestScore;
         LeaderboardAPI.SetScore(this.leaderboardId, score,
+            (result) => { console.log(`result.isSuccess: ${result.isSuccess}`); },
+            (error) => { console.error(error); });
+
+        return this._myBestScore;
+    }
+    
+    public AddScore(score:number){
+        console.log("LeaderBoard add score "+score)
+        this._myBestScore += score;
+        LeaderboardAPI.SetScore(this.leaderboardId, this._myBestScore,
             (result) => { console.log(`result.isSuccess: ${result.isSuccess}`); },
             (error) => { console.error(error); });
 
