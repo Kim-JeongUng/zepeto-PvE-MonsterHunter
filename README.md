@@ -1,5 +1,8 @@
 # zepeto-PvE-MonsterHunter
- multiplay rpg
+ ### Multiply MORPG <br>
+ [클라이언트 코드](https://github.com/Kim-JeongUng/zepeto-PvE-MonsterHunter/tree/main/Assets/MonsterHunter/ZepetoScript)<br>
+ [서버 코드](https://github.com/Kim-JeongUng/zepeto-PvE-MonsterHunter/tree/main/Assets/Server/World.multiplay/ServerModule/Modules)
+ <br><br>
 ![image](https://user-images.githubusercontent.com/82865325/232285922-8f4a03a0-66de-492a-9c59-d4200c63c072.png)
 
 [[DEMO Video]](https://youtu.be/Up69Lsn1pDI)
